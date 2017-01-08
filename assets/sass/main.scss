@@ -6,21 +6,53 @@ AUTHOR:		Your Name Here
 
 TABLE OF CONTENTS:
 
-1. Basics
+1. Main Layout
+2. Content
 
 ==============================================
 */
 
 
 
-/* 1. Basics ================================= */
+/* 1. Main Layout ================================= */
 
 * {
 	box-sizing: border-box;
 }
 
 body {
-	background: #eee;
+	background: #ccc;
+}
+
+
+.content {
+	background: white;
+	padding: 30px;
+	font-family: sans-serif;
+	width: 90%;
+	max-width: 600px;
+	margin: 30px auto;
+	border-radius: 10px;
+}
+
+
+
+/* 2. Content ================================= */
+
+.logo {
+	width: 60px;
+}
+
+h1 {
+	font-weight: 700;
+	font-size: 22pt;
+	margin: 15px 0;
+}
+
+p {
+	color: #777;
+	// margin: 10px 0;
+	line-height: 140%;
 }
 
 

@@ -8,20 +8,6 @@ var browserSync = require('browser-sync').create();
 
 
 
-gulp.task('default', function() { // running `gulp` runs this task. this task sort of branches off into the others as needed
-
-	browserSync.init({ // start the browsersync mini-server
-        server: "./" // on the root of the project
-    });
-
-	gulp.watch('./assets/sass/**/*.scss', ['sass']); // watch sass files. if they change, run the task called "sass"
-	gulp.watch('./assets/js/**/*.js', ['lint']); // watch js files. if they change, run the task called "lint"
-    gulp.watch("./*.*").on('change', browserSync.reload); // watch all top level files and reload if they change
-    gulp.watch("./assets/**/*.*").on('change', browserSync.reload); // watch all files in assets level files and reload if they change. note, we can't just say watch ALLL files or it would include several thousand npm module files
-});
-
-
-
 
 // this task takes sass files and compiles them
 gulp.task('sass', function () {
@@ -40,4 +26,18 @@ gulp.task('lint', function () {
 	return gulp.src('./assets/js/**/*.js') // watch these files
 		.pipe(jshint()) // error ceck the files
 		.pipe(jshint.reporter('jshint-stylish'/*, {beep: true}*/)); // if there are errors, show them
+});
+
+
+
+gulp.task('default', function() { // running `gulp` runs this task. this task sort of branches off into the others as needed
+
+	browserSync.init({ // start the browsersync mini-server
+        server: "./" // on the root of the project
+    });
+
+	gulp.watch('./assets/sass/**/*.scss', ['sass']); // watch sass files. if they change, run the task called "sass"
+	gulp.watch('./assets/js/**/*.js', ['lint']); // watch js files. if they change, run the task called "lint"
+    gulp.watch("./**/*.html").on('change', browserSync.reload); // watch all top level files and reload if they change
+    gulp.watch("./assets/**/*.js").on('change', browserSync.reload); // watch all top level files and reload if they change
 });

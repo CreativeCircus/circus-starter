@@ -52,11 +52,11 @@ Run `npm update` to have npm fetch all the things.
 #### Run Gulp on this project with the Circus Starter Gulp File.
 Run `gulp`.
 
-#### What did it do?
+#### What does it do?
 Every time you save a code file, Gulp will
 - Compile SASS files into CSS
 - Check JS files for errors
 - Refresh the Browser
 
-### Get to work
+### Get to work!
 Now you can just work in the index.html file, the css (or later, scss) files, the js files, and Gulp will error check them and refresh the browser every time you save. Frickin' magic right?
