@@ -10,16 +10,11 @@ TABLE OF CONTENTS:
 
 ==============================================
 */
-
-
-
 /* 1. Basics ================================= */
-
 * {
-	box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 body {
-	font-family: sans-serif; 
-	/* if your page has sans-serif text on it, you know this css file is working */
-}
+  background: #eee; }
+
+/*# sourceMappingURL=main.css.map */

@@ -33,14 +33,13 @@ Gulp is one of the most popular tools that runs on Node for helping web develope
 
 Run `npm install gulp-cli -g` to install the main Gulp package for your whole computer.
 
-### Install Gulp into this project
-Now Gulp is on your computer. We need to stick a copy of it in this project.
+### Use NPM to install all the tools we need.
 
 Type `cd ` (note the space) into your terminal window, then drag and drop this folder right onto the terminal window. It should paste in the full path to the folder after the `cd`. Press Enter.
 
 Now the terminal should be "in" this project folder.
 
-Run `npm install gulp --save-dev` to install Gulp for this project. Don't worry about the warnings for now.
+Run `npm update` to have npm fetch all the things.
 
 ### Run Gulp on this project with the Circus Starter Gulp File.
 Run `gulp`.

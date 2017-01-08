@@ -1,0 +1,29 @@
+{
+  "name": "circus-starter",
+  "version": "1.0.0",
+  "description": "A good starting point for new Circus students",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.18.6",
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-sass": "^3.0.0",
+    "gulp-sourcemaps": "^1.9.1",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrissilich/circus-starter.git"
+  },
+  "author": "Chris Silich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chrissilich/circus-starter/issues"
+  },
+  "homepage": "https://github.com/chrissilich/circus-starter#readme"
+}
