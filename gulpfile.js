@@ -16,7 +16,7 @@ gulp.task('sass', function () {
 		.pipe(sass().on('error', sass.logError)) // on errors, show them
 		.pipe(sourcemaps.write('./')) // put the sourcemaps with the css files
 		.pipe(gulp.dest('./assets/css')) // put the css files here.
-        .pipe(browserSync.stream()); // tell browsersync to send over the changes
+        //.pipe(browserSync.stream()); // tell browsersync to send over the changes
 });
 
 
@@ -39,5 +39,5 @@ gulp.task('default', function() { // running `gulp` runs this task. this task so
 	gulp.watch('./assets/sass/**/*.scss', ['sass']); // watch sass files. if they change, run the task called "sass"
 	gulp.watch('./assets/js/**/*.js', ['lint']); // watch js files. if they change, run the task called "lint"
     gulp.watch("./**/*.html").on('change', browserSync.reload); // watch all top level files and reload if they change
-    gulp.watch("./assets/**/*.js").on('change', browserSync.reload); // watch all top level files and reload if they change
+    gulp.watch("./assets/**/*.*").on('change', browserSync.reload); // watch all assets and reload if they change
 });
