@@ -13,8 +13,8 @@ First, a project is stored on the internet, in what's called a "repository". The
 
 2. Get the Github App (https://desktop.github.com/), install it, and log in in the app, then come back here.
 
-3. Each time you start a new project, even a tiny one, make a new repository. All your work should go into repositories, because not only will you turn in homework this way, but also, a full Github account is very impressive to potential employers.
-You can do in either of two ways:
+3. Each time you start a new project, even a tiny one, make a new repository. All your work should go into repositories, for many reasons. Not only will you turn in homework this way, but it's a great way to keep your files backed up, and of course, **a full Github account is very impressive to potential employers**.
+You start a new Git repo in either of two ways:
 	- Locally, and then push it up to Github
 		- In the Github app, press the + in the top left corner, then make a new repo. This just makes it on your computer. 
 		- Press publish in the top right corner of the Github app to send this repo to Github. Now it's a real git repo with a remote copy and a working copy.
@@ -38,9 +38,7 @@ Everything is organized in a folder structure that makes sense, though every dev
 
 ###  Getting started with this Starter Template
 
-After you make a git repo for your new project, you'll see that it's literally just an empty folder. That's daunting. 
-
-Let's get the files from this starter template into your new project.
+After you make a git repo for your new project, you'll see that it's literally just an empty folder. That's daunting, so let's get started by getting the files from this starter template into your new project.
 
 1. On this repo page on the Github website (https://github.com/CreativeCircus/circus-starter), click "Clone or Download", then "Download ZIP"
 2. Wait for it to download.
