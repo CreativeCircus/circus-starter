@@ -5,14 +5,13 @@ You're probably looking at this readme file on GitHub right now! If you're somew
 
 Git is a technology that helps developers store, share, and back up their code files. Github is the most popular place to get Git service.
 
-First, a project is stored on the internet, in what's called a "repository". Then, and developer who needs to work on that project can "pull" a copy of it to their computer, called a "working copy", work on it, and "push" their changes back up into the repository. 
+First, a project is stored on the internet, in what's called a "repository". Then, a developer who needs to work on that project can "pull" a copy of it to their computer (a "working copy"), work on it, and "push" their changes back up into the repository. 
 
 ### Getting Started with Git and Github
-*You only need to do this once on your computer.*
 
 1. Make a Github account, and login.
 
-2. Get the Github App (https://desktop.github.com/), install it, and log in, then come back here.
+2. Get the Github App (https://desktop.github.com/), install it, and log in in the app, then come back here.
 
 3. Each time you start a new project, even a tiny one, make a new repository. All your work should go into repositories, because not only will you turn in homework this way, but also, a full Github account is very impressive to potential employers.
 You can do in either of two ways:
@@ -29,14 +28,6 @@ You can do in either of two ways:
 
 Git gets way more complicated than this, but for now, this is all you need.
 
-###  Getting started with this Starter Template
-
-After you make a git repo for your new project, and you've got your blank working copy on your computer, you can drop this template in it.
-
-1. On this repo page on the Github website (https://github.com/CreativeCircus/circus-starter), click "Clone or Download", then "Download ZIP"
-2. Wait for it to download.
-3. Unzip into your new repo.
-4. Delete unwanted files (like this readme), alter the `package.json` file with your name and details if you like, and commit your new project to github.
 
 ## 2. Files and Folders
 Included in this project are some files that almost all your projects will need. Your basic HTML, and a CSS "reset", and an empty JS file are included. 
@@ -45,8 +36,19 @@ The CSS in both SCSS and traditional CSS, but if you don't like SCSS, just ignor
 
 Everything is organized in a folder structure that makes sense, though every developer team has their own way of doing it.
 
+###  Getting started with this Starter Template
+
+After you make a git repo for your new project, you'll see that it's literally just an empty folder. That's daunting. 
+
+Let's get the files from this starter template into your new project.
+
+1. On this repo page on the Github website (https://github.com/CreativeCircus/circus-starter), click "Clone or Download", then "Download ZIP"
+2. Wait for it to download.
+3. Unzip the template into your new project folder.
+4. Delete unwanted files (like this readme), alter the `package.json` file with your name and details if you like, and commit your new project to github.
+
 ## 3. Helpful Terminal Tools
-Part of this project is a handful of tools to get you started faster. They run through a little utility called Gulp, and they will check your code for errors for you, and streamline other parts of your workflow.
+Part of this project is a handful of tools to get you started faster. They run in your Terminal through a little utility called Gulp, and they will check your code for errors for you, and streamline other parts of your workflow.
 
 There is some initial setup involved that you just need to do once. After that, just use this template for each project, and you're good to go.
 
