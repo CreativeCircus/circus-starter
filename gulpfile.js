@@ -1,25 +1,24 @@
 // all the node modules we need
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
-var jshint = require('gulp-jshint');
-var stylish = require('jshint-stylish');
-var browserSync = require('browser-sync').create();
-
-
-
+var gulp = require('gulp'),
+	sass = require('gulp-sass'),
+	concat = require('gulp-concat'),
+	scsslint = require('gulp-scss-lint'),
+	sourcemaps = require('gulp-sourcemaps'),
+	jshint = require('gulp-jshint'),
+	stylish = require('jshint-stylish'),
+	browserSync = require('browser-sync').create();
 
 // this task takes sass files and compiles them
 gulp.task('sass', function () {
 	return gulp.src('./assets/sass/**/*.scss') // run over these files
 		.pipe(sourcemaps.init()) // make sourcemaps for chrome devtools
+		.pipe(scsslint()) // gulp-scss-lint
 		.pipe(sass().on('error', sass.logError)) // on errors, show them
+		.pipe(concat('main.css')) // gulp-concat
 		.pipe(sourcemaps.write('./')) // put the sourcemaps with the css files
 		.pipe(gulp.dest('./assets/css')) // put the css files here.
         //.pipe(browserSync.stream()); // tell browsersync to send over the changes
 });
-
-
 
 // this task looks through js files for errors
 gulp.task('lint', function () {
@@ -27,8 +26,6 @@ gulp.task('lint', function () {
 		.pipe(jshint()) // error ceck the files
 		.pipe(jshint.reporter('jshint-stylish'/*, {beep: true}*/)); // if there are errors, show them
 });
-
-
 
 gulp.task('default', function() { // running `gulp` runs this task. this task sort of branches off into the others as needed
 
