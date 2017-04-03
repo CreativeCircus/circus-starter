@@ -1,6 +1,6 @@
 {
   "name": "circus-starter",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A good starting point for new Circus students",
   "main": "gulpfile.js",
   "dependencies": {},

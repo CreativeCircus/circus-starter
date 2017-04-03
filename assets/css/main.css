@@ -19,16 +19,36 @@ body {
   background: #ccc; }
 
 .content {
+  position: relative;
   background: white;
-  padding: 30px;
+  padding: 50px 30px 50px;
   font-family: sans-serif;
   width: 90%;
-  max-width: 600px;
-  margin: 30px auto;
-  border-radius: 10px; }
+  max-width: 500px;
+  margin: 140px auto; }
 
 /* 2. Content ================================= */
+.top-angle {
+  position: absolute;
+  left: -1%;
+  top: -15px;
+  width: 102%;
+  height: 30px;
+  background: #ccc;
+  transform: rotate(-2.2deg); }
+
+.bottom-angle {
+  position: absolute;
+  left: -1%;
+  bottom: -15px;
+  width: 102%;
+  height: 30px;
+  background: #ccc;
+  transform: rotate(1.5deg); }
+
 .logo {
+  position: absolute;
+  top: -10px;
   width: 60px; }
 
 h1 {
@@ -39,5 +59,12 @@ h1 {
 p {
   color: #777;
   line-height: 140%; }
+
+code {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 0.8em;
+  opacity: 0.1; }
 
 /*# sourceMappingURL=main.css.map */

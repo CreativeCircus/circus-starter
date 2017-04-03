@@ -1,4 +1,4 @@
-# How to use the Circus Starter Template v1.0.0
+# How to use the Circus Starter Template v1.1.0
 
 ## 1. Getting a new project started with Github.
 You're probably looking at this readme file on GitHub right now! If you're somewhere else, go here: https://github.com/CreativeCircus/circus-starter
@@ -44,9 +44,11 @@ After you make a git repo for your new project, you'll see that it's literally j
 2. Wait for it to download.
 3. Unzip the template into your new project folder.
 4. Delete unwanted files (like this readme), alter the `package.json` file with your name and details if you like, and commit your new project to github.
+5. Rename the `gitignore-add-a-period` file to just `.gitignore` This file tells git to ignore a bunch of temporary files, and will save you time. It will disappear, because files that start with a period are invisible. If you get an error that the file already exists, skip this step. 
 
-## 3. Helpful Terminal Tools
-Part of this project is a handful of tools to get you started faster. They run in your Terminal through a little utility called Gulp, and they will check your code for errors for you, and streamline other parts of your workflow.
+## 3. Helpful Terminal Tools 
+*optional for designers and 1st quarter devs*
+Part of this project is a handful of tools to get you working faster. They run in your Terminal through a little utility called Gulp, and they will check your code for errors for you, and streamline other parts of your workflow.
 
 There is some initial setup involved that you just need to do once. After that, just use this template for each project, and you're good to go.
 
@@ -56,6 +58,10 @@ Start by opening the app named "Terminal" on your computer. It's in Applications
 ### One-time installs
 
 We need to install some basics on your computer, just once, that all future projects will use. If you've ever done this before, skip down to "Set up this project".
+
+#### Get your terminal initialized
+*You only need to do this once on your computer.*
+Run `touch ~/.bash_profile`.
 
 #### Install NVM
 *You only need to do this once on your computer.*
