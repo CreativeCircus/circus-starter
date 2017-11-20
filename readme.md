@@ -95,7 +95,7 @@ Now your computer is set up, we need to have npm set this project up for us.
 
 Type `cd ` (with a space after it) into your terminal window, then drag and drop the project folder right onto the terminal window. It should paste in the full path to the folder after the `cd `. Press Enter. Now the terminal should be "in" this project folder.
 
-Run `npm update` to have npm fetch all the things.
+Run `npm install` to have npm fetch all the things.
 
 ### Get to work!
 
