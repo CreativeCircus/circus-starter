@@ -13,7 +13,8 @@ var browserSync = require('browser-sync').create();
 gulp.task('sass', function () {
 	return gulp.src('./assets/sass/**/*.scss') // run over these files
 		.pipe(sourcemaps.init()) // make sourcemaps for chrome devtools
-		.pipe(sass().on('error', sass.logError)) // on errors, show them
+		.pipe(sass().on('error', sass.logError))
+		.pipe(sass({outputStyle: 'expanded', indentType: "tab", indentWidth: 1}).on('error', sass.logError)) // on errors, show them
 		.pipe(sourcemaps.write('./')) // put the sourcemaps with the css files
 		.pipe(gulp.dest('./assets/css')) // put the css files here.
         //.pipe(browserSync.stream()); // tell browsersync to send over the changes
