@@ -10,7 +10,7 @@ TABLE OF CONTENTS:
 2. Content
 
 ==============================================
-
+*/
 
 /* 1. Main Layout ================================= */
 * {
@@ -69,12 +69,17 @@ p {
 	line-height: 140%;
 }
 
+p.github {
+	font-size: 0.8em;
+	opacity: 0.2;
+}
+
 code {
 	position: absolute;
 	top: 20px;
 	right: 20px;
 	font-size: 0.8em;
-	opacity: 0.1;
+	opacity: 0.2;
 }
 
 /*# sourceMappingURL=main.css.map */

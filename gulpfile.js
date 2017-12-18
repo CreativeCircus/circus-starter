@@ -19,7 +19,6 @@ gulp.task('sass', function () {
 				indentType: "tab", 
 				indentWidth: 1
 			}).on('error', sass.logError)) // on errors, show them
-		.pipe(concat('./app.css')) // join all the css files into one
 		.pipe(sourcemaps.write('./')) // put the sourcemaps with the css files
 		.pipe(gulp.dest('./dist/css')) // put the css files here.
         .pipe(browserSync.stream()) // tell browsersync to send over the changes
@@ -31,7 +30,7 @@ gulp.task('sass', function () {
 gulp.task('js', function () {
 	return gulp.src('./src/js/**/*.js') // watch these files
 		.pipe(sourcemaps.init()) // make sourcemaps for chrome devtools
-		.pipe(jshint()) // error check the files
+		.pipe(jshint(".jshintrc")) // error check the files
 		.pipe(jshint.reporter('jshint-stylish'/*, {beep: true}*/)) // if there are errors, show them
 		.pipe(babel({ // run the js through babel to convert ES6 to ES5
             presets: ['env']
