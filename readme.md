@@ -30,11 +30,13 @@ Git gets way more complicated than this, but for now, this is all you need.
 
 
 ## 2. Files and Folders
-Included in this project are some files that almost all your projects will need. Your basic HTML, and a CSS "reset", and an empty JS file are included. 
+Included in this project are some files that almost all your projects will need. See `index.html` for your basic responsive HTML setup.
 
-The CSS in both SCSS and traditional CSS, but if you don't like SCSS, just ignore or delete those. 
+You'll see `dist` and `src` folders. If you're new, or you don't know what the difference is between `src` and `dist`, just work in `dist` for now.
 
-Everything is organized in a folder structure that makes sense, though every developer team has their own way of doing it.
+`dist` stands for "distribution". It's all the assets that your website needs to run. CSS for style (there's a reset in there too), JS for interactivity, and an image, as an example. Until you get good, just stay in `dist`.
+
+`src` stands for source. When you're ready to use transpiled SCSS, and concatenated, transpiled ES6, you need to separate the code you write (the source, `src`) from the code you deploy (or distribute, `dist`). At that time, start working in `src` and let gulp handle `src` for you. 
 
 ###  Getting started with this Starter Template
 
