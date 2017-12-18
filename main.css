@@ -1,0 +1,133 @@
+/* 
+==============================================
+CONTENT:	Project Name Here
+AUTHOR:		Your Name Here
+==============================================
+
+TABLE OF CONTENTS:
+
+1. Main Layout
+2. Content
+
+==============================================
+*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* 1. Main Layout ================================= */
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: #ccc;
+}
+
+.content {
+	position: relative;
+	background: white;
+	padding: 50px 30px 50px;
+	font-family: sans-serif;
+	width: 90%;
+	max-width: 500px;
+	margin: 140px auto;
+}
+
+/* 2. Content ================================= */
+.top-angle {
+	position: absolute;
+	left: -1%;
+	top: -15px;
+	width: 102%;
+	height: 30px;
+	background: #ccc;
+	transform: rotate(-2.2deg);
+}
+
+.bottom-angle {
+	position: absolute;
+	left: -1%;
+	bottom: -15px;
+	width: 102%;
+	height: 30px;
+	background: #ccc;
+	transform: rotate(1.5deg);
+}
+
+.logo {
+	position: absolute;
+	top: -10px;
+	width: 60px;
+}
+
+h1 {
+	font-weight: 700;
+	font-size: 22pt;
+	margin: 15px 0;
+}
+
+p {
+	color: #777;
+	line-height: 140%;
+}
+
+code {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	font-size: 0.8em;
+	opacity: 0.1;
+}
+
+/*# sourceMappingURL=main.css.map */

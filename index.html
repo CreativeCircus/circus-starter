@@ -7,22 +7,31 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="stylesheet" href="assets/css/reset.css">
-		<link rel="stylesheet" href="assets/css/main.css">
+		<!-- if you want to use transpiled SASS files, from the src folder, comment the reset and main.css lines, 
+			uncomment the app.css line, and work exclusively in the src/scss files -->		
+		<link rel="stylesheet" href="dist/css/reset.css">
+		<link rel="stylesheet" href="dist/css/main.css">
+		<!-- <link rel="stylesheet" href="dist/css/app.css"> -->
 	</head>
 	<body>
 
+		
 		<div class="content">
 			<div class="top-angle"></div>
-			<img class="logo" src="assets/img/logo.png">
+			<img class="logo" src="dist/img/logo.png">
 			<h1>Hello World!</h1>
 			<p>Yep, you've got the Circus Starter project working.</p>
 			<p>Congratulations! You're ready to code.</p>
-			<code>1.1.0</code>
+			<code>1.2.0</code>
 			<div class="bottom-angle"></div>
 		</div>
 
 
-		<script src="assets/js/main.js"></script>
+
+		<!-- if you want to use transpiled ES6 JS files, from the src folder, comment the main.js line, 
+			uncomment the app.js line, and work exclusively in the src/js files -->	
+		<script src="dist/js/main.js"></script>
+		<!-- <script src="dist/js/app.js"></script> -->
+
 	</body>
 </html>
