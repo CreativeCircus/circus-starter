@@ -48,6 +48,7 @@ After you make a git repo for your new project, you'll see that it's literally j
 
 ## 3. Helpful Terminal Tools 
 *optional for designers and 1st quarter devs*
+
 Part of this project is a handful of tools to get you working faster. They run in your Terminal through a little utility called Gulp, and they will check your code for errors for you, and streamline other parts of your workflow.
 
 There is some initial setup involved that you just need to do once. After that, just use this template for each project, and you're good to go.
@@ -61,6 +62,7 @@ We need to install some basics on your computer, just once, that all future proj
 
 #### Get your terminal initialized
 *You only need to do this once on your computer.*
+
 Run `touch ~/.bash_profile`.
 
 #### Install NVM
