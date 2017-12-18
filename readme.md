@@ -43,10 +43,8 @@ You'll see `dist` and `src` folders. If you're new, or you don't know what the d
 After you make a git repo for your new project, you'll see that it's literally just an empty folder. That's daunting, so let's get started by getting the files from this starter template into your new project.
 
 1. On this repo page on the Github website (https://github.com/CreativeCircus/circus-starter), click "Clone or Download", then "Download ZIP"
-2. Wait for it to download.
-3. Unzip the template into your new project folder.
-4. Delete unwanted files (like this readme), alter the `package.json` file with your name and details if you like, and commit your new project to github.
-5. Rename the `gitignore-add-a-period` file to just `.gitignore` This file tells git to ignore a bunch of temporary files, and will save you time. It will disappear, because files that start with a period are invisible. If you get an error that the file already exists, skip this step. 
+2. Unzip it, and rename the folder to whatever you want to call your project.
+3. Delete any unwanted files, like this readme, and commit the new project to git.
 
 ## 3. Helpful Terminal Tools 
 *optional for designers and 1st quarter devs*
