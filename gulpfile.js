@@ -15,7 +15,7 @@ gulp.task('sass', function () {
 	return gulp.src('./src/scss/**/*.scss') // run over these files
 		.pipe(sourcemaps.init()) // make sourcemaps for chrome devtools
 		.pipe(sass({ // convert the sass into plain css
-				outputStyle: 'expanded', 
+				outputStyle: 'compressed',  // change to 'expanded' to make it readable
 				indentType: "tab", 
 				indentWidth: 1
 			}).on('error', sass.logError)) // on errors, show them
@@ -35,7 +35,7 @@ gulp.task('js', function () {
 		.pipe(babel({ // run the js through babel to convert ES6 to ES5
             presets: ['env']
 		}))
-		.pipe(concat('./app.js')) // join all the js files into one // comment this line if you want inidivdual JS files.
+		// .pipe(concat('./app.js')) // join all the js files into one // uncomment this line if you want to concatenate all JS files into one.
 		.pipe(sourcemaps.write('./')) // put the sourcemaps with the js files
 		.pipe(gulp.dest('./dist/js')) // put the js files here.
         .pipe(browserSync.stream()) // tell browsersync to send over the changes

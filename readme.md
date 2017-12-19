@@ -1,4 +1,4 @@
-# How to use the Circus Starter Template v1.1.0
+# How to use the Circus Starter Template v1.2.3
 
 ## 1. Getting a new project started with Github.
 You're probably looking at this readme file on GitHub right now! If you're somewhere else, go here: https://github.com/CreativeCircus/circus-starter
