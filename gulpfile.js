@@ -31,10 +31,15 @@ gulp.task('js', function () {
 	return gulp.src('./src/js/**/*.js') // watch these files
 		.pipe(sourcemaps.init()) // make sourcemaps for chrome devtools
 		.pipe(jshint(".jshintrc")) // error check the files
-		.pipe(jshint.reporter('jshint-stylish'/*, {beep: true}*/)) // if there are errors, show them
+		.pipe(jshint.reporter('jshint-stylish', {beep: true})) // if there are errors, show them
 		.pipe(babel({ // run the js through babel to convert ES6 to ES5
             presets: ['env']
 		}))
+		.on('error', function (err) {
+			console.warn(err.message);
+			this.emit('end');
+		})
+		
 		// .pipe(concat('./app.js')) // join all the js files into one // uncomment this line if you want to concatenate all JS files into one.
 		.pipe(sourcemaps.write('./')) // put the sourcemaps with the js files
 		.pipe(gulp.dest('./dist/js')) // put the js files here.
