@@ -1,6 +1,2 @@
 .DS_Store
 node_modules
-dist/css/app.css
-dist/css/app.css.map
-dist/js/app.js
-dist/js/app.js.map

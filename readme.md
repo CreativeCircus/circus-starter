@@ -1,4 +1,4 @@
-# How to use the Circus Starter Template v1.2.4
+# How to use the Circus Starter Template v1.4.0
 
 ## 1. Getting a new project started with Github.
 You're probably looking at this readme file on GitHub right now! If you're somewhere else, go here: https://github.com/CreativeCircus/circus-starter
@@ -111,8 +111,10 @@ Run `gulp`.
 First, it opens your new project in your browser. Cool!
 
 After that, leave the terminal window open, and every time you save a code file, Gulp will
-- Compile SASS files into CSS (if you're using them)
-- Check JS files for errors
+- Compile SASS files in src into CSS files in dist (if you're using them)
+- Error check JS files in src
+- Compile JS (ES6) files in src into JS (ES5) files in dist
+- Compress images in src and put them in dist (you should still try to size them appropriately and save them in the right format)
 - Refresh the Browser
 
-Now you can just work in the index.html file, the css (or later, scss) files, the js files, and Gulp will error check them and refresh the browser every time you save. Frickin' magic right?
+Frickin' magic right?

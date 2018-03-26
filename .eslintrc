@@ -1,0 +1,20 @@
+{
+	"parserOptions": {
+		"ecmaVersion": 6
+	},
+	"env": {
+		"browser": true,
+		"node": true
+	},
+	"rules": {
+		"no-mixed-spaces-and-tabs": 1,
+		"indent": [1, "tab"],
+		"eqeqeq": 1,
+		"no-useless-return": 1,
+		"no-shadow": 1,
+		"comma-dangle": [0, "always-multiline"],
+		"func-style": ["warn", "expression"],
+		"object-property-newline": ["warn"],
+		"semi": 0
+	}
+}

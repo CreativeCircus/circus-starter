@@ -1,0 +1,8 @@
+{
+	"class-style": "none",
+	"doctype-first": true,
+	"doctype-html5": true,
+	"indent-width": false,
+	"maxerr": 10,
+	"tag-bans": ["b"]
+}
