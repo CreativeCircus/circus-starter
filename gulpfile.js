@@ -94,8 +94,8 @@ gulp.task('default', function() { // running `gulp` runs this task. this task so
 		server: "./", // on the root of the project
 	});
 
-	gulp.watch(['!./node_modules/*.*', './**/*.html'], ['html-check']); // watch sass files. if they change, run the task called sass-compile
-	gulp.watch('./src/img/**/', ['image-compress']); // watch sass files. if they change, run the task called sass-compile
+	gulp.watch(['!./node_modules/*.*', './**/*.html'], ['html-check']); // watch html files. if they change, run the task called html-check
+	gulp.watch('./src/img/**/', ['image-compress']); // watch image files. if they change, run the task called image-compress
 	gulp.watch('./src/scss/**/*.scss', ['sass-compile']); // watch sass files. if they change, run the task called sass-compile
 	gulp.watch('./src/js/**/*.js', ['js-compile']); // watch js files. if they change, run the tasks called js-check and js-compile
 	gulp.watch('./dist/js/**/*.js', ['js-check']); // watch js files. if they change, run the tasks called js-check
