@@ -1,23 +1,30 @@
 {
   "name": "circus-starter",
-  "version": "1.4",
+  "version": "1.4.0",
   "description": "A good starting point for new Circus students",
   "main": "gulpfile.js",
-  "dependencies": {},
+  "dependencies": {
+    "npm": "^5.8.0"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "browser-sync": "^2.18.6",
+    "colors": "^1.2.1",
+    "eslint": "^4.19.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.0",
+    "gulp-changed": "^3.2.0",
     "gulp-concat": "^2.6.1",
     "gulp-eslint": "^4.0.2",
+    "gulp-fn": "0.0.2",
     "gulp-htmllint": "0.0.15",
     "gulp-imagemin": "^4.1.0",
-    "gulp-jshint": "^2.0.4",
     "gulp-newer": "^1.4.0",
+    "gulp-plumber": "^1.2.0",
     "gulp-sass": "^3.0.0",
-    "gulp-sourcemaps": "^1.9.1"
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-watch": "^5.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
