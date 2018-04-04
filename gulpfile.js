@@ -54,7 +54,7 @@ gulp.task('sass-compile', function () {
 		.pipe(gulp.dest((file) => file.base.replace('src', 'dist').replace('scss', 'css'))) // put the css files here.
 		.pipe(browserSync.stream()) // tell browsersync to send over the changes
 		.pipe(gulpFn(function(file) {
-			if (file.path.indexOf('.css.map') == -1) {
+			if (file.path.indexOf('.css.map') === -1) {
 				fancyLog("SCSS converted to CSS: ".cyan);
 				console.log(file.path.replace('src', 'dist').replace('scss', 'css'))
 			}
@@ -95,7 +95,7 @@ gulp.task('js-compile', function () {
 		.pipe(gulp.dest((file) => file.base.replace('src', 'dist'))) // put the js files here.
 		.pipe(browserSync.stream()) // tell browsersync to send over the changes
 		.pipe(gulpFn(function(file) {
-			if (file.path.indexOf('.js.map') == -1) {
+			if (file.path.indexOf('.js.map') === -1) {
 				fancyLog("JS generated: ".cyan);
 				console.log(file.path.replace('src', 'dist'));
 			}
@@ -143,7 +143,7 @@ gulp.task('start-browsersync', function() {
 })
 
 
- // running `gulp` runs this task. this task sort of branches off into the others as needed
+// running `gulp` runs this task. this task sort of branches off into the others as needed
 gulp.task('default', [
 	'welcome', 
 	'html-check', 
