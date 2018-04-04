@@ -89,6 +89,7 @@ body {
 .content .foreground {
 	position: relative;
 	z-index: 2;
+	transform: translateZ(1000px);
 }
 
 .content .background {
@@ -112,6 +113,7 @@ body {
 	top: -30px;
 	width: 60px;
 	z-index: 2;
+	transform: translateZ(1000px);
 	transition: 0.3s;
 }
 
