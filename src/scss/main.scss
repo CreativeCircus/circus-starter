@@ -42,7 +42,7 @@ body {
 	.foreground {
 		position: relative;
 		z-index: 2;
-		transform: translateZ(1000px);
+		transform: translateZ(100px);
 	}
 	.background {
 		position: absolute;
@@ -64,7 +64,7 @@ body {
 		top: -30px;
 		width: 60px;
 		z-index: 2;
-		transform: translateZ(1000px);
+		transform: translateZ(100px);
 		transition: 0.3s;
 
 		&:hover {

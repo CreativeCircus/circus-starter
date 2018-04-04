@@ -33,7 +33,7 @@ var htmllintReporter = function (filepath, issues) {
  
 		process.exitCode = 1;
 	} else {
-		console.log("HTML checked for errors: ".cyan);
+		fancyLog("HTML checked for errors: ".cyan);
 		console.log(filepath);
 	}
 }
@@ -55,7 +55,7 @@ gulp.task('sass-compile', function () {
 		.pipe(browserSync.stream()) // tell browsersync to send over the changes
 		.pipe(gulpFn(function(file) {
 			if (file.path.indexOf('.css.map') == -1) {
-				console.log("SCSS converted to CSS: ".cyan);
+				fancyLog("SCSS converted to CSS: ".cyan);
 				console.log(file.path.replace('src', 'dist').replace('scss', 'css'))
 			}
 		}))
@@ -96,7 +96,7 @@ gulp.task('js-compile', function () {
 		.pipe(browserSync.stream()) // tell browsersync to send over the changes
 		.pipe(gulpFn(function(file) {
 			if (file.path.indexOf('.js.map') == -1) {
-				console.log("JS generated: ".cyan);
+				fancyLog("JS generated: ".cyan);
 				console.log(file.path.replace('src', 'dist'));
 			}
 		}))
@@ -112,7 +112,7 @@ gulp.task('image-compress', function () {
 		.pipe(gulp.dest(imgDest)) // put the image files here.
 		.pipe(browserSync.stream()) // tell browsersync to send over the changes
 		.pipe(gulpFn(function(file) {
-			console.log("Image compressed and copied to: ".cyan);
+			fancyLog("Image compressed and copied to: ".cyan);
 			console.log(file.history[1])
 		}))
 })
