@@ -91,7 +91,7 @@ gulp.task('js-compile', function () {
 		}))
 		.on('error', function (err) {
 			console.warn('[JS Babel Error] '.red + err.message);
-			this.emit('end');
+		// 	this.emit('end');
 		})
 		// .pipe(concat('./app.js')) // join all the js files into one // uncomment this line if you want to concatenate all JS files into one.
 		.pipe(sourcemaps.write('./')) // put the sourcemaps with the js files
