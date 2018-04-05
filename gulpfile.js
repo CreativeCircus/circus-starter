@@ -16,7 +16,7 @@ const gulp = require('gulp'),
 	browserSync = require('browser-sync').create()
 
 gulp.task('html-refresh', function() {
-	gulp.watch("*.html").on("change", browserSync.reload);
+	gulp.watch(['src/js/**/*.js', 'dist/js/**/*.js', '*.html']).on("change", browserSync.reload);
 });
 	
 
@@ -57,7 +57,7 @@ gulp.task('sass-compile', function () {
 		.pipe(gulp.dest((file) => file.base.replace('src', 'dist').replace('scss', 'css'))) // put the css files here.
 		.pipe(browserSync.stream()) // tell browsersync to send over the changes
 		.pipe(gulpFn(function(file) {
-			if (file.path.indexOf('.css.map') == -1) {
+			if (file.path.indexOf('.css.map') === -1) {
 				console.log("SCSS converted to CSS: ".cyan);
 				console.log(file.path.replace('src', 'dist').replace('scss', 'css'))
 			}
@@ -96,13 +96,13 @@ gulp.task('js-compile', function () {
 		// .pipe(concat('./app.js')) // join all the js files into one // uncomment this line if you want to concatenate all JS files into one.
 		.pipe(sourcemaps.write('./')) // put the sourcemaps with the js files
 		.pipe(gulp.dest((file) => file.base.replace('src', 'dist'))) // put the js files here.
-		.pipe(browserSync.stream()) // tell browsersync to send over the changes
 		.pipe(gulpFn(function(file) {
-			if (file.path.indexOf('.js.map') == -1) {
-				console.log("JS generated: ".cyan);
-				console.log(file.path.replace('src', 'dist'));
-			}
+			//if (file.path.indexOf('.js.map') == -1) {
+			console.log("JS generated: ".cyan);
+			console.log(file.path.replace('src', 'dist'));
+			//}
 		}))
+		
 });
 
 // this task looks through js files for errors
@@ -146,8 +146,20 @@ gulp.task('start-browsersync', function() {
 })
 
 
- // running `gulp` runs this task. this task sort of branches off into the others as needed
+// running `gulp` runs this task. this task sort of branches off into the others as needed
 gulp.task('default', [
+	'welcome', 
+	'start-browsersync', 
+	'html-refresh', 
+	'html-check', 
+	'image-compress', 
+	'js-check', 
+	'js-compile', 
+	'sass-compile', 
+	'make-cool-shit'
+]);
+
+gulp.task('no-browser-sync', [
 	'welcome', 
 	'html-refresh', 
 	'html-check', 
@@ -155,17 +167,5 @@ gulp.task('default', [
 	'js-check', 
 	'js-compile', 
 	'sass-compile', 
-	'start-browsersync', 
-	'make-cool-shit'
-]);
-
-gulp.task('no-browser-sync', [
-	'welcome', 
-	'html-check', 
-	'image-compress', 
-	'js-check', 
-	'js-compile', 
-	'sass-compile', 
-	// 'start-browsersync', 
 	'make-cool-shit'
 ]);
