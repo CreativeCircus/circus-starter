@@ -97,10 +97,10 @@ gulp.task('js-compile', function () {
 		.pipe(sourcemaps.write('./')) // put the sourcemaps with the js files
 		.pipe(gulp.dest((file) => file.base.replace('src', 'dist'))) // put the js files here.
 		.pipe(gulpFn(function(file) {
-			//if (file.path.indexOf('.js.map') == -1) {
-			console.log("JS generated: ".cyan);
-			console.log(file.path.replace('src', 'dist'));
-			//}
+			if (file.path.indexOf('.js.map') === -1) {
+				console.log("JS generated: ".cyan);
+				console.log(file.path.replace('src', 'dist'));
+			}
 		}))
 		
 });
