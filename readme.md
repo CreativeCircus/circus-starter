@@ -1,4 +1,4 @@
-# How to use the Circus Starter Template v1.4.2
+# How to use the Circus Starter Template v1.4.4
 
 ## 1. Getting a new project started with Github.
 You're probably looking at this readme file on GitHub right now! If you're somewhere else, go here: https://github.com/CreativeCircus/circus-starter
@@ -55,22 +55,16 @@ There is some initial setup involved that you just need to do once. After that, 
 
 Start by opening the app named "Terminal" on your computer. It's in Applications/Utilities.
 
-
 ### One-time installs
 
 We need to install some basics on your computer, just once, that all future projects will use. If you've ever done this before, skip down to "Set up this project".
 
 #### Get your terminal initialized
 *You only need to do this once on your computer.*
-
+This is a good primer for how to use the terminal anyway.
+In your terminal, paste in this code, and press enter to run it.
 Run `touch ~/.bash_profile`.
-
-#### Install NVM
-*You only need to do this once on your computer.*
-
-NVM is Node Version Manager. It helps you install Node. Why do you need a version manager? Because they update Node all the time. 
-
-Go here: `https://github.com/creationix/nvm#install-script` and run the nvm install script in your Terminal.
+This particular command doesn't show any success message, but most others will.
 
 #### Install Node and NPM
 *You only need to do this once on your computer.*
@@ -79,14 +73,14 @@ Node is a super geeky command line tool for running code. You won't write any co
 
 NPM is Node Package Manager. It will fetch packages of these pre-written tools for you.
 
-Run `nvm install node` to install Node and NPM.
+Go to https://nodejs.org, download and run the NodeJS installer to install Node and NPM.
 
 #### Install Gulp on your Computer
 *You only need to do this once on your computer.*
 
 Gulp is one of the most popular tools that runs on Node for helping web developers.
 
-Run `npm install gulp-cli -g` to install the main Gulp package for your whole computer.
+Run `npm install gulp-cli -g` to install the main Gulp package. The -g means "globally," as in, for your whole computer.
 
 ### Set up this project
 
@@ -116,5 +110,6 @@ After that, leave the terminal window open, and every time you save a code file,
 - Compile JS (ES6) files in src into JS (ES5) files in dist
 - Compress images in src and put them in dist (you should still try to size them appropriately and save them in the right format)
 - Refresh the Browser
+- Says sassy messages upon startup
 
 Frickin' magic right?
