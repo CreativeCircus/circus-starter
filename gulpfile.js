@@ -15,6 +15,13 @@ const gulp = require('gulp'),
 	gulpFn  = require('gulp-fn'),
 	browserSync = require('browser-sync').create()
 
+
+const genericErrorHandler = function (err) {
+	fancyLog("SCSS Issue: " + err.toString().red);
+	// console.log(err.toString());
+	this.emit('end');
+}
+
 gulp.task('html-refresh', function() {
 	gulp.watch(['src/js/**/*.js', 'dist/js/**/*.js', '*.html']).on("change", browserSync.reload);
 });
@@ -52,7 +59,7 @@ gulp.task('sass-compile', function () {
 			outputStyle: 'expanded',  // change to 'expanded' to make it readable
 			indentType: 'tab', 
 			indentWidth: 1,
-		}).on('error', sass.logError)) // on errors, show them
+		}))
 		.pipe(sourcemaps.write('./')) // put the sourcemaps with the css files
 		.pipe(gulp.dest((file) => file.base.replace('src', 'dist').replace('scss', 'css'))) // put the css files here.
 		.pipe(browserSync.stream()) // tell browsersync to send over the changes
