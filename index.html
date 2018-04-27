@@ -10,10 +10,35 @@
 		<link rel="stylesheet" href="dist/css/main.css">
 
 		<!--
-			Do I work in src or dist?
-			Newbies work in dist, smarty-pants gulp users work in src.
-			Go here to learn more:
-			https://stackoverflow.com/questions/23730882/what-is-the-role-of-src-and-dist-folders
+			Do I work in src or dist? Good question. 
+			
+			First of all, if you're a newbie and you don't want to worry about any of this 
+			command line gulp stuff, or scss, or browser-syncing, just do everything in dist.
+			In fact, just delete the src folder.
+			
+			If you're a geek and want to get into it, here's some background...
+
+			The gulp command line helper will watch your files, and where appropriate, 
+			it will error-check and compile them from one format to another. To stay organized, 
+			we have to split things up between the files we write, the *source* files in "src", 
+			and the files they become, that get *distributed* on the web, in "dist".
+		
+			So src/scss files become dist/css files,
+			And src/js files become dist/js files (that have been compiled down to ES5),
+			And src/img files become dist/img files (that have been compressed for you).
+
+			Anything that doesn't need compiling/compressing/error-checking (plugins, video, fonts, etc), 
+			just put straight in *dist*. 
+			
+			One way to remember it is: you're only going to distribute *dist*. You keep the source files 
+			to yourself, hidden from the world.
+
+			Go here to learn more about src and dist:
+				https://stackoverflow.com/questions/23730882/what-is-the-role-of-src-and-dist-folders
+			Or here for detailed instructions on setting up the gulp command line helper.
+				https://github.com/CreativeCircus/circus-starter
+
+			- Chris Silich
 		-->
 		
 	</head>
@@ -28,7 +53,7 @@
 				<p class="github">
 					<a target="_blank" href="https://github.com/CreativeCircus/circus-starter">https://github.com/CreativeCircus/circus-starter</a>
 				</p>
-				<code>1.4.4</code>
+				<code>1.4.5</code>
 			</div>
 			<div class="background"></div>
 		</div>

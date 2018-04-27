@@ -51,7 +51,7 @@ var htmllintReporter = function (filepath, issues) {
 
 
 // this task takes sass files and compiles them
-gulp.task('sass-compile', function () {
+gulp.task('sass-compile', () => {
 	return watch('src/scss/**/*.scss') // run over these files
 		.pipe(plumber())
 		.pipe(sourcemaps.init()) // make sourcemaps for chrome devtools
@@ -73,7 +73,7 @@ gulp.task('sass-compile', function () {
 
 
 // this task looks through js files for errors
-gulp.task('js-check', function () {
+gulp.task('js-check', () => {
 	// if eslint complains about a certain error, and you want to turn it off, or change it
 	// go here for the rules https://eslint.org/docs/rules/
 	// and you'll need to change them in the .eslintrc file in the root of the project.
@@ -89,13 +89,11 @@ gulp.task('js-check', function () {
 
 
 // this task looks through js files for errors
-gulp.task('js-compile', function () {
+gulp.task('js-compile', () => {
 	return watch('src/js/**/*.js') // watch these files
 		.pipe(plumber())
 		.pipe(sourcemaps.init()) // make sourcemaps for chrome devtools
-		.pipe(babel({ // run the js through babel to convert ES6 to ES5
-			presets: ['env'],
-		}))
+		.pipe(babel())
 		.on('error', function (err) {
 			console.warn('[JS Babel Error] '.red + err.message);
 		})
@@ -112,25 +110,25 @@ gulp.task('js-compile', function () {
 });
 
 // this task looks through js files for errors
-gulp.task('image-compress', function () {
+gulp.task('image-compress', () => {
 	let imgDest = 'dist/img/';
-	return watch('src/img/*.*') // watch these files
+	return watch('src/img/**/*.*') // watch these files
 		.pipe(plumber())
-		.pipe(changed(imgDest))
+		.pipe(changed((file) => file.base.replace('src', 'dist')))
 		.pipe(imagemin())
-		.pipe(gulp.dest(imgDest)) // put the image files here.
+		.pipe(gulp.dest((file) => file.base.replace('src', 'dist'))) // put the image files here.
 		.pipe(browserSync.stream()) // tell browsersync to send over the changes
 		.pipe(gulpFn(function(file) {
 			console.log("Image compressed and copied to: ".cyan);
-			console.log(file.history[1])
+			console.log(file.path.replace('src', 'dist'));
 		}))
 })
 
-gulp.task('welcome', function () {
+gulp.task('welcome', () => {
 	console.log(colors.red('Starting Circus Starter template gulpfile! Wizz, whirrrrr, bang, pop!'));
 })
 
-gulp.task('make-cool-shit', function () {
+gulp.task('make-cool-shit', () => {
 	setTimeout(() => {
 		console.log(' ');
 		console.log(' ================================================ '.red);
