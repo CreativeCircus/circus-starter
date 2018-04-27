@@ -36,7 +36,7 @@ You'll see `dist` and `src` folders. If you're new, or you don't know what the d
 
 `dist` stands for "distribution". It's all the assets that your website needs to run. CSS for style (there's a reset in there too), JS for interactivity, and an image, as an example. Until you get good, just stay in `dist`.
 
-`src` stands for source. When you're ready to use transpiled SCSS, and concatenated, transpiled ES6, you need to separate the code you write (the source, `src`) from the code you deploy (or distribute, `dist`). At that time, use `src` for files you need compiled/compressed/error-checked, like SCSS, JS, and images, and let gulp handle putting them in `src` for you. Other stuff like fonts, video, or JS written by others (plugins), put straight in dist too.
+`src` stands for source. When you're ready to use transpiled SCSS, and concatenated, transpiled ES6, you need to separate the code you write (the source, `src`) from the code you deploy (or distribute, `dist`). At that time, use `src` for files you need compiled/compressed/error-checked, like SCSS, JS, and images, and let gulp handle putting them in `dist` for you. Other stuff like fonts, video, or JS written by others (plugins), put straight in dist too.
 
 Paths written in your HTML, CSS, JS, etc to refer to other files will ALWAYS refer to them in dist. The websites only knows about dist. If you refer to files in src, you screwed up.
 
