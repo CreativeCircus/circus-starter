@@ -36,7 +36,7 @@ You'll see `dist` and `src` folders. If you're new, or you don't know what the d
 
 `dist` stands for "distribution". It's all the assets that your website needs to run. CSS for style (there's a reset in there too), JS for interactivity, and an image, as an example. Until you get good, just stay in `dist`.
 
-`src` stands for source. When you're ready to use transpiled SCSS, and concatenated, transpiled ES6, you need to separate the code you write (the source, `src`) from the code you deploy (or distribute, `dist`). At that time, start working in `src` and let gulp handle `src` for you. 
+`src` stands for source. When you're ready to use transpiled SCSS, and concatenated, transpiled ES6, you need to separate the code you write (the source, `src`) from the code you deploy (or distribute, `dist`). At that time, use `src` for files you need compiled/compressed/error-checked, like SCSS, JS, and images, and let gulp handle putting them in `src` for you. Other stuff like fonts, video, or JS written by others (plugins), put straight in dist too.
 
 ###  Getting started with this Starter Template
 
@@ -76,27 +76,36 @@ We need to install some basics on your computer, just once, that all future proj
 
 #### Get your terminal initialized
 *You only need to do this once on your computer.*
+
 This is a good primer for how to use the terminal anyway.
+
 In your terminal, paste in this code, and press enter to run it.
+
 Run `touch ~/.bash_profile`.
+
 This particular command doesn't show any success message, but most others will.
 
 #### Install NVM, then Node and NPM
 *You only need to do this once on your computer.*
 
 Node is a super geeky command line tool for running code. You won't write any code for it for a while, but other people have written insanely useful tools that you can use without much effort, to make your life easier.
+
 NPM is Node Package Manager. It will fetch packages of these pre-written tools for you.
+
 NVM is Node Version Manager. It will install Node and NPM for you.
 
 Run this commands to install NVM:
+
 `curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash`
 
 Close and reopen your terminal, and verify it installed with this:
+
 `command -v nvm`
 
 If it didn't, try your luck with the [official instructions](https://github.com/creationix/nvm#installation).
 
 Then use nvm to install Node and NPM:
+
 `nvm install node`
 
 #### Install Gulp on your Computer
