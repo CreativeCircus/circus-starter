@@ -38,6 +38,8 @@ You'll see `dist` and `src` folders. If you're new, or you don't know what the d
 
 `src` stands for source. When you're ready to use transpiled SCSS, and concatenated, transpiled ES6, you need to separate the code you write (the source, `src`) from the code you deploy (or distribute, `dist`). At that time, use `src` for files you need compiled/compressed/error-checked, like SCSS, JS, and images, and let gulp handle putting them in `src` for you. Other stuff like fonts, video, or JS written by others (plugins), put straight in dist too.
 
+Paths written in your HTML, CSS, JS, etc to refer to other files will ALWAYS refer to them in dist. The websites only knows about dist. If you refer to files in src, you screwed up.
+
 ###  Getting started with this Starter Template
 
 After you make a git repo for your new project, you'll see that it's literally just an empty folder. That's daunting, so let's get started by getting the files from this starter template into your new project.
