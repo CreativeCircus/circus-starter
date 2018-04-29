@@ -163,7 +163,8 @@ gulp.task('default', [
 	'js-check', 
 	'js-compile', 
 	'sass-compile', 
-	'make-cool-shit'
+	'make-cool-shit',
+	'version'
 ]);
 
 gulp.task('no-browser-sync', [
@@ -174,7 +175,8 @@ gulp.task('no-browser-sync', [
 	'js-check', 
 	'js-compile', 
 	'sass-compile', 
-	'make-cool-shit'
+	'make-cool-shit',
+	'version'
 ]);
 
 
@@ -190,9 +192,9 @@ gulp.task('version', () => {
 				let local = util.inspect(stats.mtime).substr(0,16);
 				console.log('local, remote', local, remote);
 				if (remote <= local) {
-					console.warn('this gulpfile appears to be up to date')
+					console.log('this gulpfile appears to be up to date')
 				} else {
-					console.log('this gulpfile appears to be out of date')				
+					console.warn('this gulpfile appears to be out of date'.red.bold.inverse)				
 				}
 			})
 			.catch(error => {
