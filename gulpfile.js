@@ -166,10 +166,10 @@ gulp.task('version', () => {
 				let local = util.inspect(stats.mtime).substr(0,16);
 				console.log('local, remote', local, remote);
 				if (remote <= local) {
-					console.log('Template appears to be up to date.')
+					console.log(`Template appears to be up to date.`)
 				} else {
-					console.warn('Circus Starter template appears to be out of date.'.red.bold.inverse)				
-					console.warn('If this is a new project, get a new copy.'.red.bold.inverse)				
+					console.warn(`Circus Starter template appears to be out of date.`.red.bold.inverse)				
+					console.warn(`If this is a new project, get a new copy. If it's an old project, consider updating for new gulpy goodness.`.red.bold.inverse)				
 				}
 			})
 			.catch(error => {
