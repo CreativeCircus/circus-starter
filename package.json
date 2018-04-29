@@ -4,6 +4,7 @@
   "description": "A good starting point for new Circus students",
   "main": "gulpfile.js",
   "dependencies": {
+    "axios": "^0.18.0",
     "npm": "^5.8.0"
   },
   "devDependencies": {

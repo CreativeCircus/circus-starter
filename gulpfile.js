@@ -13,6 +13,9 @@ const gulp = require('gulp'),
 	colors = require('colors'),
 	plumber = require('gulp-plumber'),
 	gulpFn  = require('gulp-fn'),
+	axios = require('axios'),
+	fs = require('fs'),
+	util = require('util'),
 	browserSync = require('browser-sync').create()
 
 
@@ -173,3 +176,27 @@ gulp.task('no-browser-sync', [
 	'sass-compile', 
 	'make-cool-shit'
 ]);
+
+
+gulp.task('version', () => {
+	// pay no attention to the man behind the curtain.
+	fs.stat('gulpfile.js', function(err, stats){
+		// var mtime = new Date(util.inspect(stats.mtime));
+		// console.log(stats.mtime);
+	
+		axios.get('https://api.github.com/repos/creativecircus/circus-starter')
+			.then(response => {
+				// console.log(response.data)
+				let remote = response.data.updated_at.substr(0,19);
+				let local = util.inspect(stats.mtime).substr(0,19);
+				if (remote <= local) {
+					console.warn('this gulpfile appears to be up to date')
+				} else {
+					console.log('this gulpfile appears to be out of date')				
+				}
+			})
+			.catch(error => {
+				console.log(`Couldn't fetch circus-starter mod date`, error);
+			});
+	});
+})
