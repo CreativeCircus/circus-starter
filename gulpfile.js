@@ -186,8 +186,8 @@ gulp.task('version', () => {
 	
 		axios.get('https://api.github.com/repos/creativecircus/circus-starter')
 			.then(response => {
-				let remote = response.data.updated_at.substr(0,19);
-				let local = util.inspect(stats.mtime).substr(0,19);
+				let remote = response.data.updated_at.substr(0,16);
+				let local = util.inspect(stats.mtime).substr(0,16);
 				console.log('local, remote', local, remote);
 				if (remote <= local) {
 					console.warn('this gulpfile appears to be up to date')
