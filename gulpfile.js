@@ -153,6 +153,32 @@ gulp.task('start-browsersync', function() {
 })
 
 
+
+gulp.task('version', () => {
+	// pay no attention to the man behind the curtain.
+	fs.stat('gulpfile.js', function(err, stats){
+		// var mtime = new Date(util.inspect(stats.mtime));
+		// console.log(stats.mtime);
+	
+		axios.get('https://api.github.com/repos/creativecircus/circus-starter')
+			.then(response => {
+				let remote = response.data.updated_at.substr(0,16);
+				let local = util.inspect(stats.mtime).substr(0,16);
+				console.log('local, remote', local, remote);
+				if (remote <= local) {
+					console.log('this gulpfile appears to be up to date')
+				} else {
+					console.warn('this gulpfile appears to be out of date'.red.bold.inverse)				
+				}
+			})
+			.catch(error => {
+				console.log(`Couldn't fetch circus-starter mod date`, error);
+			});
+	});
+})
+
+
+
 // running `gulp` runs this task. this task sort of branches off into the others as needed
 gulp.task('default', [
 	'welcome', 
@@ -178,27 +204,3 @@ gulp.task('no-browser-sync', [
 	'make-cool-shit',
 	'version'
 ]);
-
-
-gulp.task('version', () => {
-	// pay no attention to the man behind the curtain.
-	fs.stat('gulpfile.js', function(err, stats){
-		// var mtime = new Date(util.inspect(stats.mtime));
-		// console.log(stats.mtime);
-	
-		axios.get('https://api.github.com/repos/creativecircus/circus-starter')
-			.then(response => {
-				let remote = response.data.updated_at.substr(0,16);
-				let local = util.inspect(stats.mtime).substr(0,16);
-				console.log('local, remote', local, remote);
-				if (remote <= local) {
-					console.log('this gulpfile appears to be up to date')
-				} else {
-					console.warn('this gulpfile appears to be out of date'.red.bold.inverse)				
-				}
-			})
-			.catch(error => {
-				console.log(`Couldn't fetch circus-starter mod date`, error);
-			});
-	});
-})
