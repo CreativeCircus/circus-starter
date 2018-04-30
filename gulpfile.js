@@ -156,16 +156,15 @@ gulp.task('start-browsersync', function() {
 
 gulp.task('version', () => {
 	// pay no attention to the man behind the curtain.
-	fs.stat('gulpfile.js', function(err, stats){
-		// var mtime = new Date(util.inspect(stats.mtime));
-		// console.log(stats.mtime);
-	
-		axios.get('https://api.github.com/repos/creativecircus/circus-starter')
+	fs.readFile('package.json', 'utf8', function (err, data) {
+		if (err) {
+			console.warn(`Where's package.json?!?!?!`);
+		}
+		let parsedPackage = JSON.parse(data);	
+		let packagefileURL = 'https://raw.githubusercontent.com/CreativeCircus/circus-starter/master/package.json';
+		axios.get(packagefileURL, {responseType: 'json'})
 			.then(response => {
-				let remote = response.data.updated_at.substr(0,16);
-				let local = util.inspect(stats.mtime).substr(0,16);
-				console.log('local, remote', local, remote);
-				if (remote <= local) {
+				if (parsedPackage.version == response.data.version) {
 					console.log(`Template appears to be up to date.`)
 				} else {
 					console.warn(`Circus Starter template appears to be out of date.`.red.bold.inverse)				
@@ -177,8 +176,6 @@ gulp.task('version', () => {
 			});
 	});
 })
-
-
 
 // running `gulp` runs this task. this task sort of branches off into the others as needed
 gulp.task('default', [
@@ -205,4 +202,5 @@ gulp.task('no-browser-sync', [
 	'make-cool-shit',
 	// 'version'
 ]);
+
 
