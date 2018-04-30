@@ -188,7 +188,7 @@ gulp.task('default', [
 	'js-compile', 
 	'sass-compile', 
 	'make-cool-shit',
-	// 'version'
+	'version'
 ]);
 
 gulp.task('no-browser-sync', [
@@ -200,7 +200,7 @@ gulp.task('no-browser-sync', [
 	'js-compile', 
 	'sass-compile', 
 	'make-cool-shit',
-	// 'version'
+	'version'
 ]);
 
 
