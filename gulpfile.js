@@ -159,6 +159,7 @@ gulp.task('version', () => {
 	fs.readFile('package.json', 'utf8', function (err, data) {
 		if (err) {
 			console.warn(`Where's package.json?!?!?!`);
+			return false;
 		}
 		let parsedPackage = JSON.parse(data);	
 		let packagefileURL = 'https://raw.githubusercontent.com/CreativeCircus/circus-starter/master/package.json';
@@ -167,6 +168,8 @@ gulp.task('version', () => {
 				if (parsedPackage.version == response.data.version) {
 					console.log(`Template appears to be up to date.`)
 				} else {
+					console.warn(`Local version is ${parsedPackage.version}.`.red.bold)	
+					console.warn(`Remote version is ${response.data.version}.`.red.bold)	
 					console.warn(`Circus Starter template appears to be out of date.`.red.bold.inverse)				
 					console.warn(`If this is a new project, get a new copy. If it's an old project, consider updating for new gulpy goodness.`.red.bold.inverse)				
 				}
