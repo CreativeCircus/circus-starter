@@ -158,7 +158,7 @@ gulp.task('version', () => {
 	// pay no attention to the man behind the curtain.
 	fs.readFile('package.json', 'utf8', function (err, data) {
 		if (err) {
-			console.warn(`Where's package.json?!?!?!`);
+			console.warn(`Where's package.json?!?!?!`.red.bold.inverse);
 			return false;
 		}
 		let parsedPackage = JSON.parse(data);	
