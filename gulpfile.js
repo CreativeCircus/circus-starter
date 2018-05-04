@@ -19,19 +19,17 @@ const gulp = require('gulp'),
 	browserSync = require('browser-sync').create()
 
 
-const genericErrorHandler = function (err) {
-	fancyLog("SCSS Issue: " + err.toString().red);
-	// console.log(err.toString());
-	this.emit('end');
-}
 
 gulp.task('html-refresh', function() {
-	gulp.watch(['src/js/**/*.js', 'dist/js/**/*.js', '*.html']).on("change", browserSync.reload);
+	return watch(['src/js/**/*.js', 'dist/js/**/*.js', '*.html', '!node_modules/*.*'], { ignoreInitial: false })
+		.pipe(gulpFn(function(file) {
+			browserSync.reload();
+		}))
 });
 	
 
 gulp.task('html-check', function() {
-	return watch('*.html', { ignoreInitial: false })
+	return watch(['*.html', '!node_modules/*.*'], { ignoreInitial: false })
 		.pipe(plumber())
 		.pipe(htmllint({}, htmllintReporter))
 });
@@ -75,19 +73,6 @@ gulp.task('sass-compile', () => {
 });
 
 
-// this task looks through js files for errors
-gulp.task('js-check', () => {
-	// if eslint complains about a certain error, and you want to turn it off, or change it
-	// go here for the rules https://eslint.org/docs/rules/
-	// and you'll need to change them in the .eslintrc file in the root of the project.
-	return watch(['src/js/**/*.js', 'dist/js/**/*.js'], function() {
-		return gulp.src(['src/js/**/*.js', 'dist/js/**/*.js'])
-			.pipe(plumber())
-			.pipe(eslint())
-			.pipe(eslint.format())
-			.pipe(eslint.failAfterError())	
-	})
-})
 
 
 
@@ -165,8 +150,8 @@ gulp.task('version', () => {
 		let packagefileURL = 'https://raw.githubusercontent.com/CreativeCircus/circus-starter/master/package.json';
 		axios.get(packagefileURL, {responseType: 'json'})
 			.then(response => {
-				if (parsedPackage.version == response.data.version) {
-					console.log(`Template appears to be up to date.`)
+				if (parsedPackage.version === response.data.version) {
+					console.log(`Circus Starter template appears to be up to date.`)
 				} else {
 					console.warn(`Local version is ${parsedPackage.version}.`.red.bold)	
 					console.warn(`Remote version is ${response.data.version}.`.red.bold)	
@@ -187,7 +172,6 @@ gulp.task('default', [
 	'html-refresh', 
 	'html-check', 
 	'image-compress', 
-	'js-check', 
 	'js-compile', 
 	'sass-compile', 
 	'make-cool-shit',
@@ -199,7 +183,6 @@ gulp.task('no-browser-sync', [
 	'html-refresh', 
 	'html-check', 
 	'image-compress', 
-	'js-check', 
 	'js-compile', 
 	'sass-compile', 
 	'make-cool-shit',
