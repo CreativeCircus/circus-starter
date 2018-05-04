@@ -112,6 +112,16 @@ gulp.task('image-compress', () => {
 		}))
 })
 
+
+
+gulp.task('start-browsersync', function() {
+	browserSync.init({ // start the browsersync mini-server
+		server: "./", // on the root of the project
+	});
+})
+
+
+
 gulp.task('welcome', () => {
 	console.log(colors.red('Starting Circus Starter template gulpfile! Wizz, whirrrrr, bang, pop!'));
 })
@@ -120,22 +130,15 @@ gulp.task('make-cool-shit', () => {
 	setTimeout(() => {
 		console.log(' ');
 		console.log(' ================================================ '.red);
-		console.log('  Welcome to the Circus Starter template.         '.white.bold);
-		console.log('  You\'re good to go.                              '.white.bold);
-		console.log('  Make cool 💩.                                     '.white.bold);
-		console.log('                                - Chris Silich    '.white.dim);
+		console.log('  Welcome to the Circus Starter template.         '.blue.bold);
+		console.log('  You\'re good to go.                              '.blue.bold);
+		console.log('  Make cool 💩.                                     '.blue.bold);
+		console.log('                                - Chris Silich    '.blue.dim);
 		console.log(' ================================================ '.red);
 		console.log(' ');
 	}, 500)
 })
 
-
-
-gulp.task('start-browsersync', function() {
-	browserSync.init({ // start the browsersync mini-server
-		server: "./", // on the root of the project
-	});
-})
 
 
 
