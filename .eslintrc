@@ -13,7 +13,6 @@
 		"no-useless-return": 1,
 		"no-shadow": 1,
 		"comma-dangle": [0, "always-multiline"],
-		// "func-style": ["warn", "expression"],
 		"object-property-newline": ["warn"],
 		"semi": 0
 	}
