@@ -1,0 +1,108 @@
+<html>
+      <head>
+        <meta charset="UTF-8">
+        <title>readme.md</title>
+      </head>
+      <body>
+        <h1 id="how-to-use-the-circus-starter-template-v1-4-9">How to use the Circus Starter Template v1.4.9</h1>
+<h2 id="1-getting-a-new-project-started-with-github-">1. Getting a new project started with Github.</h2>
+<p>You&#39;re probably looking at this readme file on GitHub right now! If you&#39;re somewhere else, go here: <a href="https://github.com/CreativeCircus/circus-starter">https://github.com/CreativeCircus/circus-starter</a></p>
+<p>Git is a technology that helps developers store, share, and back up their code files. Github is the most popular place to get Git service.</p>
+<p>First, a project is stored on the internet, in what&#39;s called a &quot;repository&quot;. Then, a developer who needs to work on that project can &quot;pull&quot; a copy of it to their computer (a &quot;working copy&quot;), work on it, and &quot;push&quot; their changes back up into the repository. </p>
+<h3 id="getting-started-with-git-and-github">Getting Started with Git and Github</h3>
+<ol>
+<li><p>Make a Github account, and login.</p>
+</li>
+<li><p>Get the Github App (<a href="https://desktop.github.com/)">https://desktop.github.com/)</a>, install it, and log in in the app, then come back here.</p>
+</li>
+<li><p>Each time you start a new project, even a tiny one, make a new repository. All your work should go into repositories, for many reasons. Not only will you turn in homework this way, but it&#39;s a great way to keep your files backed up, and of course, <strong>a full Github account is very impressive to potential employers</strong>.
+You start a new Git repo in either of two ways:</p>
+<ul>
+<li>Locally, and then push it up to Github<ul>
+<li>In the Github app, press the + in the top left corner, then make a new repo. This just makes it on your computer. </li>
+<li>Press publish in the top right corner of the Github app to send this repo to Github. Now it&#39;s a real git repo with a remote copy and a working copy.</li>
+</ul>
+</li>
+<li>Remotely, and then pull it down to your computer<ul>
+<li>On the Github website, click the plus in the top right, then make a new repo. This just makes it on Github&#39;s servers.</li>
+<li>On the new repo page, click &quot;Clone or Download&quot;, then &quot;Open in Desktop&quot;. That should pop up the Github app. Tell it where to save your working copy.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>After that, you just need to keep your working copy and your remote repo up-to-date, or &quot;in sync&quot;.</p>
+<ul>
+<li>Any time you create or change files, the app will notice. You then need to &quot;Commit&quot; and &quot;Sync&quot; or &quot;Push&quot; them to send them to Github.</li>
+<li>Any time anyone else makes changes and commits them, you&#39;ll be able to fetch those changes by syncing your working copy with the repo.</li>
+</ul>
+</li>
+</ol>
+<p>Git gets way more complicated than this, but for now, this is all you need.</p>
+<h2 id="2-files-and-folders">2. Files and Folders</h2>
+<p>Included in this project are some files that almost all your projects will need. See <code>index.html</code> for your basic responsive HTML setup.</p>
+<p>You&#39;ll see <code>dist</code> and <code>src</code> folders. If you&#39;re new, or you don&#39;t know what the difference is between <code>src</code> and <code>dist</code>, just work in <code>dist</code> for now.</p>
+<p><code>dist</code> stands for &quot;distribution&quot;. It&#39;s all the assets that your website needs to run. CSS for style (there&#39;s a reset in there too), JS for interactivity, and an image, as an example. Until you get good, just stay in <code>dist</code>.</p>
+<p><code>src</code> stands for source. When you&#39;re ready to use transpiled SCSS, and concatenated, transpiled ES6, you need to separate the code you write (the source, <code>src</code>) from the code you deploy (or distribute, <code>dist</code>). At that time, use <code>src</code> for files you need compiled/compressed/error-checked, like SCSS, JS, and images, and let gulp handle putting them in <code>dist</code> for you. Other stuff like fonts, video, or JS written by others (plugins), put straight in dist too.</p>
+<p>Paths written in your HTML, CSS, JS, etc to refer to other files will ALWAYS refer to them in dist. The websites only knows about dist. If you refer to files in src, you screwed up.</p>
+<h3 id="getting-started-with-this-starter-template">Getting started with this Starter Template</h3>
+<p>After you make a git repo for your new project, you&#39;ll see that it&#39;s literally just an empty folder. That&#39;s daunting, so let&#39;s get started by getting the files from this starter template into your new project.</p>
+<ol>
+<li>On this repo page on the Github website (<a href="https://github.com/CreativeCircus/circus-starter)">https://github.com/CreativeCircus/circus-starter)</a>, click &quot;Clone or Download&quot;, then &quot;Download ZIP&quot;</li>
+<li>Unzip it, and rename the folder to whatever you want to call your project.</li>
+<li>Delete any unwanted files, like this readme, and commit the new project to git.</li>
+</ol>
+<h2 id="3-helpful-terminal-tools">3. Helpful Terminal Tools</h2>
+<p><em>optional for designers and 1st quarter devs</em></p>
+<p>Part of this project is a handful of tools to get you working faster. They run in your Terminal through a little utility called Gulp, and will streamline your workflow and make you feel like a <a href="https://en.wikipedia.org/wiki/Leet">l33t haXXor</a>.</p>
+<h4 id="what-does-it-do-">What does it do?</h4>
+<p>First, it opens your new project in your browser. Cool!</p>
+<p>After that, leave the terminal window open, and every time you save a code file, Gulp will</p>
+<ul>
+<li>Compile SASS files in src into CSS files in dist (if you&#39;re using them)</li>
+<li>Error check JS files in src</li>
+<li>Compile JS (ES6+) files in src into JS (ES5) files in dist</li>
+<li>Compress images in src and put them in dist (you should still try to size them appropriately and save them in the right format)</li>
+<li>Refresh the Browser</li>
+<li>Says sassy messages upon startup</li>
+</ul>
+<p>Frickin&#39; magic right?</p>
+<h3 id="setup">Setup</h3>
+<p>There is some initial setup involved that you just need to do once. After that, just use this template for each project, and you&#39;re good to go.</p>
+<p>Start by opening the app named &quot;Terminal&quot; on your computer. It&#39;s in Applications/Utilities.</p>
+<h3 id="one-time-installs">One-time installs</h3>
+<p>We need to install some basics on your computer, just once, that all future projects will use. If you&#39;ve ever done this before, skip down to &quot;Set up this project&quot;.</p>
+<h4 id="get-your-terminal-initialized">Get your terminal initialized</h4>
+<p><em>You only need to do this once on your computer.</em></p>
+<p>This is a good primer for how to use the terminal anyway.</p>
+<p>In your terminal, paste in this code, and press enter to run it.</p>
+<p>Run <code>touch ~/.bash_profile</code>.</p>
+<p>This particular command doesn&#39;t show any success message, but most others will.</p>
+<h4 id="install-nvm-then-node-and-npm">Install NVM, then Node and NPM</h4>
+<p><em>You only need to do this once on your computer.</em></p>
+<p>Node is a super geeky command line tool for running code. You won&#39;t write any code for it for a while, but other people have written insanely useful tools that you can use without much effort, to make your life easier.</p>
+<p>NPM is Node Package Manager. It will fetch packages of these pre-written tools for you.</p>
+<p>NVM is Node Version Manager. It will install Node and NPM for you.</p>
+<p>Run this commands to install NVM:</p>
+<p><code>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash</code></p>
+<p>Close and reopen your terminal, and verify it installed with this:</p>
+<p><code>command -v nvm</code></p>
+<p>If it didn&#39;t, try your luck with the <a href="https://github.com/creationix/nvm#installation">official instructions</a>.</p>
+<p>Then use nvm to install Node and NPM:</p>
+<p><code>nvm install node</code></p>
+<h4 id="install-gulp-on-your-computer">Install Gulp on your Computer</h4>
+<p><em>You only need to do this once on your computer.</em></p>
+<p>Gulp is one of the most popular tools that runs on Node for helping web developers.</p>
+<p>Run <code>npm install gulp-cli -g</code> to install the main Gulp package. The -g means &quot;globally,&quot; as in, for your whole computer.</p>
+<h3 id="set-up-this-project">Set up this project</h3>
+<p>Now your computer is set up, we need to have npm set this project up for us.</p>
+<h4 id="tell-npm-to-get-all-the-tools-for-us">Tell NPM to get all the tools for us</h4>
+<p><em>You only need to do this once when you start a new project.</em></p>
+<p>Type <code>cd</code> (with a space after it) into your terminal window, then drag and drop the project folder right onto the terminal window. It should paste in the full path to the folder after the <code>cd</code>. Press Enter. Now the terminal should be &quot;in&quot; this project folder.</p>
+<p>Run <code>npm install</code> to have npm fetch all the things.</p>
+<h3 id="get-to-work-">Get to work!</h3>
+<h4 id="tell-gulp-to-watch-this-project-">Tell Gulp to watch this project.</h4>
+<p>Type <code>cd</code> (with a space after it) into your terminal window, then drag and drop the project folder right onto the terminal window. It should paste in the full path to the folder after the <code>cd</code>. Press Enter. Now the terminal should be &quot;in&quot; this project folder.</p>
+<p>Run <code>gulp</code>.</p>
+
+      </body>
+    </html>
