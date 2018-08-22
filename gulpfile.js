@@ -20,18 +20,20 @@ const gulp = require('gulp'),
 
 
 
-gulp.task('html-refresh', function() {
-	return watch(['src/js/**/*.js', 'dist/js/**/*.js', '*.html', '!node_modules/*.*'], { ignoreInitial: false })
+gulp.task('html-refresh', function(done) {
+	watch(['src/js/**/*.js', 'dist/js/**/*.js', '*.html', '!node_modules/*.*'], { ignoreInitial: false })
 		.pipe(gulpFn(function(file) {
 			browserSync.reload();
 		}))
+	done();
 });
 	
 
-gulp.task('html-check', function() {
-	return watch(['*.html', '!node_modules/*.*'], { ignoreInitial: false })
+gulp.task('html-check', function(done) {
+	watch(['*.html', '!node_modules/*.*'], { ignoreInitial: false })
 		.pipe(plumber())
 		.pipe(htmllint({}, htmllintReporter))
+	done();
 });
 
 var htmllintReporter = function (filepath, issues) {
@@ -52,8 +54,8 @@ var htmllintReporter = function (filepath, issues) {
 
 
 // this task takes sass files and compiles them
-gulp.task('sass-compile', () => {
-	return watch('src/scss/**/*.scss') // run over these files
+gulp.task('sass-compile', (done) => {
+	watch('src/scss/**/*.scss') // run over these files
 		.pipe(plumber())
 		.pipe(sourcemaps.init()) // make sourcemaps for chrome devtools
 		.pipe(sass({ // convert the sass into plain css
@@ -70,6 +72,7 @@ gulp.task('sass-compile', () => {
 				console.log(file.path.replace('src', 'dist').replace('scss', 'css'))
 			}
 		}))
+	done()
 });
 
 
@@ -77,8 +80,8 @@ gulp.task('sass-compile', () => {
 
 
 // this task looks through js files for errors
-gulp.task('js-compile', () => {
-	return watch('src/js/**/*.js') // watch these files
+gulp.task('js-compile', (done) => {
+	watch('src/js/**/*.js') // watch these files
 		.pipe(plumber())
 		.pipe(sourcemaps.init()) // make sourcemaps for chrome devtools
 		.pipe(babel())
@@ -94,13 +97,13 @@ gulp.task('js-compile', () => {
 				console.log(file.path.replace('src', 'dist'));
 			}
 		}))
-		
+	done()	
 });
 
 // this task looks through js files for errors
-gulp.task('image-compress', () => {
+gulp.task('image-compress', (done) => {
 	let imgDest = 'dist/img/';
-	return watch('src/img/**/*.*') // watch these files
+	watch('src/img/**/*.*') // watch these files
 		.pipe(plumber())
 		.pipe(changed((file) => file.base.replace('src', 'dist')))
 		.pipe(imagemin())
@@ -110,23 +113,26 @@ gulp.task('image-compress', () => {
 			console.log("Image compressed and copied to: ".cyan);
 			console.log(file.path.replace('src', 'dist'));
 		}))
+	done()
 })
 
 
 
-gulp.task('start-browsersync', function() {
+gulp.task('start-browsersync', function(done) {
 	browserSync.init({ // start the browsersync mini-server
 		server: "./", // on the root of the project
 	});
+	done()
 })
 
 
 
-gulp.task('welcome', () => {
+gulp.task('welcome', (done) => {
 	console.log(colors.red('Starting Circus Starter template gulpfile! Wizz, whirrrrr, bang, pop!'));
+	done();
 })
 
-gulp.task('make-cool-shit', () => {
+gulp.task('make-cool-shit', (done) => {
 	setTimeout(() => {
 		console.log(' ');
 		console.log(' ================================================ '.red);
@@ -136,17 +142,19 @@ gulp.task('make-cool-shit', () => {
 		console.log('                                - Chris Silich    '.blue.dim);
 		console.log(' ================================================ '.red);
 		console.log(' ');
+		done()
 	}, 500)
 })
 
 
 
 
-gulp.task('version', () => {
+gulp.task('version', (done) => {
 	// pay no attention to the man behind the curtain.
 	fs.readFile('package.json', 'utf8', function (err, data) {
 		if (err) {
 			console.warn(`Where's package.json?!?!?!`.red.bold.inverse);
+			done();
 			return false;
 		}
 		let parsedPackage = JSON.parse(data);	
@@ -161,35 +169,41 @@ gulp.task('version', () => {
 					console.warn(`Circus Starter template appears to be out of date.`.red.bold.inverse)				
 					console.warn(`If this is a new project, get a new copy. If it's an old project, consider updating for new gulpy goodness.`.red.bold.inverse)				
 				}
+				done();
 			})
 			.catch(error => {
 				console.log(`Couldn't fetch circus-starter mod date`, error);
+				done();
 			});
 	});
 })
 
 // running `gulp` runs this task. this task sort of branches off into the others as needed
-gulp.task('default', [
+gulp.task('default', gulp.series(
 	'welcome', 
-	'start-browsersync', 
-	'html-refresh', 
-	'html-check', 
-	'image-compress', 
-	'js-compile', 
-	'sass-compile', 
+	gulp.parallel(
+		'start-browsersync', 
+		'html-refresh', 
+		'html-check', 
+		'image-compress', 
+		'js-compile', 
+		'sass-compile'
+	), 
 	'make-cool-shit',
 	'version'
-]);
+));
 
-gulp.task('no-browser-sync', [
+gulp.task('no-browser-sync', gulp.series(
 	'welcome', 
-	'html-refresh', 
-	'html-check', 
-	'image-compress', 
-	'js-compile', 
-	'sass-compile', 
+	gulp.parallel(
+		'html-refresh', 
+		'html-check', 
+		'image-compress', 
+		'js-compile', 
+		'sass-compile'
+	), 
 	'make-cool-shit',
 	'version'
-]);
+));
 
 
