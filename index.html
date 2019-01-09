@@ -13,14 +13,17 @@
 			Do I work in src or dist? Good question. 
 			
 			First of all, if you're a newbie and you don't want to worry about any of this 
-			command line gulp stuff, or scss, or browser-syncing, just do everything in dist.
+			Prepros or Gulp stuff, or scss, or browser-syncing, just do everything in dist.
 			In fact, just delete the src folder.
 			
 			If you're a geek and want to get into it, here's some background...
+			
+			Prepros and Gulp do mostly the same things. Prepros is a GUI (it's pretty), 
+			Gulp is a CLI (it's in the terminal, and it's ugly).
 
-			The gulp command line helper will watch your files, and where appropriate, 
-			it will error-check and compile them from one format to another. To stay organized, 
-			we have to split things up between the files we write: the *source* files in "src"; 
+			Both will watch your files, and where appropriate, they will error-check and 
+			compile them from one format to another. To stay organized, we have to 
+			split things up between the files we write: the *source* files in "src"; 
 			and the files they become: the files that get *distributed* on the web, in "dist".
 		
 			So src/scss files become dist/css files,
