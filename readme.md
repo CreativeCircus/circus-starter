@@ -1,4 +1,4 @@
-# How to use the Circus Starter Template v1.5.0
+# How to use the Circus Starter Template v1.6.0
 
 ## 1. Getting a new project started with Github.
 You're probably looking at this readme file on GitHub right now! If you're somewhere else, go here: https://github.com/CreativeCircus/circus-starter
@@ -48,8 +48,26 @@ After you make a git repo for your new project, you'll see that it's literally j
 2. Unzip it, and rename the folder to whatever you want to call your project.
 3. Delete any unwanted files, like this readme, and commit the new project to git.
 
-## 3. Helpful Terminal Tools 
-*optional for designers and 1st quarter devs*
+## 3. Prepros
+*For devs and nerdier designers*
+This template has been set up to work with Prepros, which is a GUI App for the help developers work faster.
+https://prepros.io/
+
+#### What does it do?
+Every time you save a code file, Prepros will
+- Compile SASS files in src into CSS files in dist (if you're using them)
+- Error check JS files in src
+- Compile JS (ES6+) files in src into JS (ES5) files in dist
+- Refresh the Browser (if you use Live Preview)
+
+#### How do? 
+
+Get the app, open it, and drop this whole folder on it.
+
+In the prepros app, right click the index.html file, and pick Live Preview. Voila.
+
+## 4. Helpful Terminal Tools 
+*for nerdier devs*
 
 Part of this project is a handful of tools to get you working faster. They run in your Terminal through a little utility called Gulp, and will streamline your workflow and make you feel like a [l33t haXXor](https://en.wikipedia.org/wiki/Leet).
 
