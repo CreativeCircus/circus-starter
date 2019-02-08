@@ -10,30 +10,30 @@
 		<link rel="stylesheet" href="dist/css/main.css">
 
 		<!--
-			Do I work in src or dist? Good question. 
-			
-			First of all, if you're a newbie and you don't want to worry about any of this 
+			Do I work in src or dist? Good question.
+
+			First of all, if you're a newbie and you don't want to worry about any of this
 			Prepros or Gulp stuff, or scss, or browser-syncing, just do everything in dist.
 			In fact, just delete the src folder.
-			
+
 			If you're a geek and want to get into it, here's some background...
-			
-			Prepros and Gulp do mostly the same things. Prepros is a GUI (it's pretty), 
+
+			Prepros and Gulp do mostly the same things. Prepros is a GUI (it's pretty),
 			Gulp is a CLI (it's in the terminal, and it's ugly).
 
-			Both will watch your files, and where appropriate, they will error-check and 
-			compile them from one format to another. To stay organized, we have to 
-			split things up between the files we write: the *source* files in "src"; 
+			Both will watch your files, and where appropriate, they will error-check and
+			compile them from one format to another. To stay organized, we have to
+			split things up between the files we write: the *source* files in "src";
 			and the files they become: the files that get *distributed* on the web, in "dist".
-		
+
 			So src/scss files become dist/css files,
 			And src/js files become dist/js files (that have been compiled down to ES5),
 			And src/img files become dist/img files (that have been compressed for you).
 
-			Anything that doesn't need compiling/compressing/error-checking (plugins, video, fonts, etc), 
-			just put straight in *dist*. 
-			
-			One way to remember it is: you're only going to distribute *dist*. You keep the source files 
+			Anything that doesn't need compiling/compressing/error-checking (plugins, video, fonts, etc),
+			just put straight in *dist*.
+
+			One way to remember it is: you're only going to distribute *dist*. You keep the source files
 			to yourself, hidden from the world.
 
 			Go here to learn more about src and dist:
@@ -43,20 +43,20 @@
 
 			- Chris Silich
 		-->
-		
+
 	</head>
 	<body>
-		
-		<div class="content">
+
+		<div class="floating-box">
 			<img class="logo" src="dist/img/logo.png" alt="Circus Logo">
-			<div id="test-id" class="foreground">
+			<div class="foreground">
 				<h1>Hello World!</h1>
 				<p>Yep, you've got the Circus Starter project working.</p>
 				<p>Congratulations! You're ready to code.</p>
 				<p class="github">
-					<a target="_blank" href="https://github.com/CreativeCircus/circus-starter">https://github.com/CreativeCircus/circus-starter</a>
+					<a target="_blank" rel="noopener" href="https://github.com/CreativeCircus/circus-starter">https://github.com/CreativeCircus/circus-starter</a>
 				</p>
-				<code>1.6.1</code>
+				<code>1.6.2</code>
 			</div>
 			<div class="background"></div>
 		</div>
