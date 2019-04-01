@@ -89,6 +89,8 @@ gulp.task('sass-compile', (done) => {
 // into older, more broadly compatible (ES5) JavaScript files in dist
 gulp.task('js-compile', (done) => {
 	watch('src/js/**/*.js') // watch these files
+		// .pipe(eslint()) // uncomment for full JS styleguide/error checking
+		// .pipe(eslint.formatEach('pretty')) // uncomment for full JS styleguide/error checking
 		.pipe(plumber())
 		.pipe(sourcemaps.init()) // make sourcemaps for chrome devtools
 		.pipe(babel())
