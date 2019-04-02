@@ -1,9 +1,9 @@
 {
 	"presets": [
-		["env", {
+		["@babel/env", {
 			"targets": {
 				"browsers": [
-					">0.2%"
+					"> 0.25%, not dead"
 				]
 			}
 		}]
