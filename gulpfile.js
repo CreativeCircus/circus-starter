@@ -2,7 +2,6 @@
 const gulp = require('gulp'),
 	watch = require('gulp-watch'),
 	sass = require('gulp-sass'),
-	concat = require('gulp-concat'),
 	sourcemaps = require('gulp-sourcemaps'),
 	autoprefixer = require('gulp-autoprefixer'),
 	babel = require('gulp-babel'),
@@ -15,7 +14,6 @@ const gulp = require('gulp'),
 	gulpFn  = require('gulp-fn'),
 	axios = require('axios'),
 	fs = require('fs'),
-	util = require('util'),
 	browserSync = require('browser-sync').create()
 
 
