@@ -29,6 +29,9 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
+	"browserslist": [
+		">0.2%"
+	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/chrissilich/circus-starter.git"

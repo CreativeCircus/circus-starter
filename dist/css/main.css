@@ -89,8 +89,7 @@ body {
 .floating-box .foreground {
 	position: relative;
 	z-index: 2;
-	-webkit-transform: translateZ(100px);
-	        transform: translateZ(100px);
+	transform: translateZ(100px);
 }
 
 .floating-box .background {
@@ -102,13 +101,11 @@ body {
 	background: white;
 	z-index: 1;
 	transition: 0.2s;
-	-webkit-transform: translateX(20px) perspective(600px) rotateY(15deg);
-	        transform: translateX(20px) perspective(600px) rotateY(15deg);
+	transform: translateX(20px) perspective(600px) rotateY(15deg);
 }
 
 .floating-box:hover .background {
-	-webkit-transform: translateX(-30px) perspective(600px) rotateY(-15deg);
-	        transform: translateX(-30px) perspective(600px) rotateY(-15deg);
+	transform: translateX(-30px) perspective(600px) rotateY(-15deg);
 }
 
 .floating-box .logo {
@@ -116,14 +113,13 @@ body {
 	top: -30px;
 	width: 60px;
 	z-index: 2;
-	-webkit-transform: translateZ(100px);
-	        transform: translateZ(100px);
+	transform: translateZ(100px);
 	transition: 0.3s;
 }
 
 .floating-box .logo:hover {
-	-webkit-transform: rotate(-0.4turn);
-	        transform: rotate(-0.4turn);
+	-ms-transform: rotate(-0.4turn);
+	    transform: rotate(-0.4turn);
 }
 
 .floating-box h1 {

@@ -17,23 +17,33 @@ const gulp = require('gulp'),
 	browserSync = require('browser-sync').create()
 
 
+const errorHandler = function (err) {
+	notify.onError({
+		title: 'Gulp error in ' + err.plugin,
+		message: err.toString()
+	})(err);
+	return this.emit('end');
+	};
+
+
 // This task refreshes the browser if an HTML file changes
+const filesForHtmlRefresh = ['src/js/**/*.js', 'dist/js/**/*.js', '*.html', '!node_modules/*.*']
 gulp.task('html-refresh', function(done) {
-	watch(['src/js/**/*.js', 'dist/js/**/*.js', '*.html', '!node_modules/*.*'], { ignoreInitial: false })
+	return gulp.src(filesForHtmlRefresh, { ignoreInitial: false })
 		.pipe(gulpFn(function(file) {
 			browserSync.reload();
 		}))
-	done();
+	//done();
 });
 	
 
 
 // This task checks HTML files for errors
+const filesForHtmlCheck = ['*.html', '!node_modules/*.*']
 gulp.task('html-check', function(done) {
-	watch(['*.html', '!node_modules/*.*'], { ignoreInitial: false })
+	return gulp.src(filesForHtmlCheck, { ignoreInitial: false })
 		.pipe(plumber())
 		.pipe(htmllint({}, htmllintReporter))
-	done();
 });
 
 var htmllintReporter = function (filepath, issues) {
@@ -54,8 +64,9 @@ var htmllintReporter = function (filepath, issues) {
 
 
 // This task takes SASS files in src and compiles them into CSS in dist
+const filesForSassCompilation = ['src/scss/**/*.scss']
 gulp.task('sass-compile', (done) => {
-	watch('src/scss/**/*.scss') // run over these files
+	return gulp.src(filesForSassCompilation) // run over these files
 		.pipe(plumber())
 		.pipe(sourcemaps.init()) // make sourcemaps for chrome devtools
 		.pipe(sass({ // convert the sass into plain css
@@ -63,9 +74,7 @@ gulp.task('sass-compile', (done) => {
 			indentType: 'tab', 
 			indentWidth: 1,
 		}))
-		.pipe(autoprefixer({
-			browsers: ['>0.2%']
-		}))
+		.pipe(autoprefixer())
 		.pipe(sourcemaps.write('./')) // put the sourcemaps with the css files
 		.pipe(gulp.dest((file) => file.base.replace('/src', '/dist').replace('/scss', '/css'))) // put the css files here.
 		.pipe(browserSync.stream()) // tell browsersync to send over the changes
@@ -75,7 +84,6 @@ gulp.task('sass-compile', (done) => {
 				console.log(file.path.replace('/src', '/dist').replace('/scss', '/css'))
 			}
 		}))
-	done()
 });
 
 
@@ -84,8 +92,9 @@ gulp.task('sass-compile', (done) => {
 
 // this task compiles modern (es6+/es2015+) JavaScript files in src and recompiles them
 // into older, more broadly compatible (ES5) JavaScript files in dist
+const filesForJsCompilation = ['src/js/**/*.js']
 gulp.task('js-compile', (done) => {
-	watch('src/js/**/*.js') // watch these files
+	return gulp.src(filesForJsCompilation) // watch these files
 		// .pipe(eslint()) // uncomment for full JS styleguide/error checking
 		// .pipe(eslint.formatEach('pretty')) // uncomment for full JS styleguide/error checking
 		.pipe(plumber())
@@ -102,8 +111,7 @@ gulp.task('js-compile', (done) => {
 				console.log("JS generated: ".cyan);
 				console.log(file.path.replace('/src', '/dist'));
 			}
-		}))
-	done()	
+		}))	
 });
 
 
@@ -114,9 +122,10 @@ gulp.task('js-compile', (done) => {
 
 
 // This task takes all images dropped in src and recompresses them, and puts them in dist
+const filesForImageCompression = ['src/img/**/*.*']
 gulp.task('image-compress', (done) => {
 	let imgDest = 'dist/img/';
-	watch('src/img/**/*.*') // watch these files
+	return gulp.src(filesForImageCompression) // watch these files
 		.pipe(plumber())
 		.pipe(changed((file) => file.base.replace('/src', '/dist')))
 		.pipe(imagemin())
@@ -126,7 +135,6 @@ gulp.task('image-compress', (done) => {
 			console.log("Image compressed and copied to: ".cyan);
 			console.log(file.path.replace('/src', '/dist'));
 		}))
-	done()
 })
 
 
@@ -192,20 +200,26 @@ gulp.task('version', (done) => {
 	});
 })
 
+gulp.task('build', gulp.parallel('html-refresh', 'html-check', 'image-compress', 'js-compile', 'sass-compile'))
+gulp.task('watch', function() {
+	const opts = {}
+	gulp.watch(filesForHtmlRefresh, opts, gulp.series(['html-refresh']))
+	gulp.watch(filesForHtmlCheck, opts, gulp.series(['html-check']))
+	gulp.watch(filesForJsCompilation, opts, gulp.series(['js-compile']))
+	gulp.watch(filesForSassCompilation, opts, gulp.series(['sass-compile']))
+	gulp.watch(filesForImageCompression, opts, gulp.series(['image-compress']))
+})
+
 // Running `gulp` runs this task. This task sort of branches off into the others as needed.
 gulp.task('default', gulp.series(
 	'welcome', 
-	gulp.parallel(
-		'start-browsersync', 
-		'html-refresh', 
-		'html-check', 
-		'image-compress', 
-		'js-compile', 
-		'sass-compile'
-	), 
+	'start-browsersync',
+	'build',
+	'watch',
 	'make-cool-shit',
 	'version'
 ));
+
 
 // Running `gulp` runs this task. This task sort of branches off into the others as needed.
 // This version is just missing the BrowserSync stuff, for projects where that wouldn't work, like
