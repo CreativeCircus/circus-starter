@@ -50,7 +50,7 @@ After you make a git repo for your new project, you'll see that it's literally j
 
 ## 3. Prepros
 *For devs and nerdier designers*
-This template has been set up to work with Prepros, which is a GUI App for the help developers work faster.
+This template has been set up to work with Prepros, which is a GUI App to help developers work faster.
 https://prepros.io/
 
 #### What does it do?
@@ -101,7 +101,7 @@ This is a good primer for how to use the terminal anyway.
 
 In your terminal, paste in this code, and press enter to run it.
 
-Run `touch ~/.bash_profile`.
+Run `touch ~/.bash_profile ~/.zshrc`.
 
 This particular command doesn't show any success message, but most others will.
 
@@ -116,7 +116,7 @@ NVM is Node Version Manager. It will install Node and NPM for you.
 
 Run this commands to install NVM:
 
-`curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash`
+`curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | $SHELL`
 
 Close and reopen your terminal, and verify it installed with this:
 
