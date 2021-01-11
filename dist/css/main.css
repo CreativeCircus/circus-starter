@@ -1,18 +1,3 @@
-/* 
-==============================================
-CONTENT:	Project Name Here
-AUTHOR:		Your Name Here
-==============================================
-
-TABLE OF CONTENTS:
-
-0. Reset
-1. Main Layout
-2. Content
-
-==============================================
-*/
-/* 0. Reset ================================= */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -98,12 +83,12 @@ time,
 mark,
 audio,
 video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -118,122 +103,132 @@ hgroup,
 menu,
 nav,
 section {
-	display: block;
+  display: block;
 }
 
 body {
-	line-height: 1;
+  line-height: 1;
 }
 
 ol,
 ul {
-	list-style: none;
+  list-style: none;
 }
 
 blockquote,
 q {
-	quotes: none;
+  quotes: none;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-	content: '';
-	content: none;
+  content: "";
+  content: none;
 }
 
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
+/* 
+==============================================
+CONTENT:	Project Name Here
+AUTHOR:		Your Name Here
+==============================================
+
+TABLE OF CONTENTS:
+
+0. Reset
+1. Main Layout
+2. Content
+
+==============================================
+*/
+/* 0. Reset ================================= */
+/* 
+If you want to add partials, use Sass Modules via @use:
+@use 'variables';
+
+Usage: partial-name.variable/mixin/function-name:
+background: variables.$primary-color;
+*/
 /* 1. Main Layout ================================= */
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-	background: #ccc;
+  background: #ccc;
 }
 
 /* 2. Content ================================= */
 .floating-box {
-	position: relative;
-	font-family: sans-serif;
-	width: 90%;
-	max-width: 500px;
-	margin: 140px auto;
-	padding: 30px 20px 30px 30px;
+  position: relative;
+  font-family: sans-serif;
+  width: 90%;
+  max-width: 500px;
+  margin: 140px auto;
+  padding: 30px 20px 30px 30px;
 }
-
 .floating-box .foreground {
-	position: relative;
-	z-index: 2;
-	transform: translateZ(100px);
+  position: relative;
+  z-index: 2;
+  transform: translateZ(100px);
 }
-
 .floating-box .background {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
-	background: white;
-	z-index: 1;
-	transition: 0.2s;
-	transform: translateX(20px) perspective(600px) rotateY(15deg);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: white;
+  z-index: 1;
+  transition: 0.2s;
+  transform: translateX(20px) perspective(600px) rotateY(15deg);
 }
-
 .floating-box:hover .background {
-	transform: translateX(-30px) perspective(600px) rotateY(-15deg);
+  transform: translateX(-30px) perspective(600px) rotateY(-15deg);
 }
-
 .floating-box .logo {
-	position: absolute;
-	top: -30px;
-	width: 60px;
-	z-index: 2;
-	transform: translateZ(100px);
-	transition: 0.3s;
+  position: absolute;
+  top: -30px;
+  width: 60px;
+  z-index: 2;
+  transform: translateZ(100px);
+  transition: 0.3s;
 }
-
 .floating-box .logo:hover {
-	-ms-transform: rotate(-0.4turn);
-	    transform: rotate(-0.4turn);
+  -ms-transform: rotate(-0.4turn);
+      transform: rotate(-0.4turn);
 }
-
 .floating-box h1 {
-	font-weight: 700;
-	font-size: 22pt;
-	margin: 15px 0;
+  font-weight: 700;
+  font-size: 22pt;
+  margin: 15px 0;
 }
-
 .floating-box p {
-	color: #777;
-	line-height: 140%;
+  color: #777;
+  line-height: 140%;
 }
-
 .floating-box p.github {
-	font-size: 0.8em;
+  font-size: 0.8em;
 }
-
 .floating-box p.github a {
-	opacity: 0.2;
-	transition: 0.3s;
+  opacity: 0.2;
+  transition: 0.3s;
 }
-
 .floating-box p.github a:hover {
-	opacity: 1;
-	color: red;
+  opacity: 1;
+  color: red;
 }
-
 .floating-box code {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	font-size: 0.8em;
-	opacity: 0.2;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 0.8em;
+  opacity: 0.2;
 }
-
 /*# sourceMappingURL=main.css.map */

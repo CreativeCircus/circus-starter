@@ -14,7 +14,16 @@ TABLE OF CONTENTS:
 */
 
 /* 0. Reset ================================= */
-@import 'reset';
+
+/* 
+If you want to add partials, use Sass Modules via @use:
+@use 'variables';
+
+Usage: partial-name.variable/mixin/function-name:
+background: variables.$primary-color;
+*/
+
+@use 'reset';
 
 
 /* 1. Main Layout ================================= */
