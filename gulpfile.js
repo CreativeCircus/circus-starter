@@ -14,6 +14,7 @@ const gulp = require('gulp'),
 	gulpFn = require('gulp-fn'),
 	axios = require('axios'),
 	fs = require('fs'),
+	path = require('path'),
 	browserSync = require('browser-sync').create()
 
 
@@ -68,9 +69,9 @@ var htmllintReporter = function (filepath, issues) {
 
 
 // This task takes SASS files in src and compiles them into CSS in dist
-const filesForSassCompilation = ['src/scss/**/*.scss']
+const filesForSassCompilation = [path.posix.join('src', 'scss', '**', '*.scss')]
 gulp.task('sass-compile', (done) => {
-	return gulp.src(filesForSassCompilation) // run over these files
+	return gulp.src(filesForSassCompilation, {cwd: process.cwd() }) // run over these files
 		.pipe(plumber())
 		.pipe(sourcemaps.init()) // make sourcemaps for chrome devtools
 		.pipe(sass({ // convert the sass into plain css
@@ -80,12 +81,12 @@ gulp.task('sass-compile', (done) => {
 		}))
 		.pipe(autoprefixer())
 		.pipe(sourcemaps.write('./')) // put the sourcemaps with the css files
-		.pipe(gulp.dest((file) => file.base.replace('/src', '/dist').replace('/scss', '/css'))) // put the css files here.
+		.pipe(gulp.dest((file) => file.base.replace(path.sep + 'src', path.sep + 'dist').replace(path.sep + 'scss', path.sep + 'css'))) // put the css files here.
 		.pipe(browserSync.stream()) // tell browsersync to send over the changes
 		.pipe(gulpFn(function (file) {
 			if (file.path.indexOf('.css.map') === -1) {
 				console.log("SCSS converted to CSS: ".cyan);
-				console.log(file.path.replace('/src', '/dist').replace('/scss', '/css'))
+				console.log(file.path.replace(path.sep + 'src', path.sep + 'dist').replace(path.sep + 'scss', path.sep + 'css'))
 			}
 		}))
 });
@@ -96,9 +97,9 @@ gulp.task('sass-compile', (done) => {
 
 // this task compiles modern (es6+/es2015+) JavaScript files in src and recompiles them
 // into older, more broadly compatible (ES5) JavaScript files in dist
-const filesForJsCompilation = ['src/js/**/*.js']
+const filesForJsCompilation = [path.posix.join('src', 'js', '**', '*.js')]
 gulp.task('js-compile', (done) => {
-	return gulp.src(filesForJsCompilation) // watch these files
+	return gulp.src(filesForJsCompilation, { cwd: process.cwd() }) // watch these files
 		// .pipe(eslint()) // uncomment for full JS styleguide/error checking
 		// .pipe(eslint.formatEach('pretty')) // uncomment for full JS styleguide/error checking
 		.pipe(plumber())
@@ -109,11 +110,11 @@ gulp.task('js-compile', (done) => {
 		})
 		// .pipe(concat('./app.js')) // join all the js files into one // uncomment this line if you want to concatenate all JS files into one.
 		.pipe(sourcemaps.write('./')) // put the sourcemaps with the js files
-		.pipe(gulp.dest((file) => file.base.replace('/src', '/dist'))) // put the js files here.
+		.pipe(gulp.dest((file) => file.base.replace(path.sep + 'src', path.sep + 'dist'))) // put the js files here.
 		.pipe(gulpFn(function (file) {
 			if (file.path.indexOf('.js.map') === -1) {
 				console.log("JS generated: ".cyan);
-				console.log(file.path.replace('/src', '/dist'));
+				console.log(file.path.replace(path.sep + 'src', path.sep + 'dist'));
 			}
 		}))
 });
