@@ -1,4 +1,4 @@
-# How to use the Circus Starter Template v1.10.0
+# How to use the Circus Starter Template v1.11.0
 
 ## 1. Getting a new project started with Github.
 

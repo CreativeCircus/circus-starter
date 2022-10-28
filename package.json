@@ -1,6 +1,6 @@
 {
 	"name": "circus-starter",
-	"version": "1.10.0",
+	"version": "1.11.0",
 	"description": "A good starting point for new Circus students",
 	"main": "gulpfile.js",
 	"devDependencies": {
@@ -22,7 +22,7 @@
 		"gulp-imagemin": "^7.1.0",
 		"gulp-newer": "^1.4.0",
 		"gulp-plumber": "^1.2.1",
-		"gulp-sass": "^4.0.0",
+		"gulp-sass": "^5.0.0",
 		"gulp-sourcemaps": "^2.6.5",
 		"gulp-watch": "^5.0.1",
 		"http-proxy": "^1.18.1",
