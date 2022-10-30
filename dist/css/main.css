@@ -161,7 +161,7 @@ background: variables.$primary-color;
 }
 
 body {
-	background: #2e3032;
+	background: rgb(46, 48, 50);
 }
 
 /* 2. Content ================================= */
@@ -176,7 +176,8 @@ body {
 .floating-box .foreground {
 	position: relative;
 	z-index: 2;
-	transform: translateZ(100px);
+	-webkit-transform: translateZ(100px);
+	        transform: translateZ(100px);
 }
 .floating-box .background {
 	position: absolute;
@@ -187,22 +188,25 @@ body {
 	background: white;
 	z-index: 1;
 	transition: 0.2s;
-	transform: translateX(20px) perspective(600px) rotateY(15deg);
+	-webkit-transform: translateX(20px) perspective(600px) rotateY(15deg);
+	        transform: translateX(20px) perspective(600px) rotateY(15deg);
 }
 .floating-box:hover .background {
-	transform: translateX(-30px) perspective(600px) rotateY(-15deg);
+	-webkit-transform: translateX(-30px) perspective(600px) rotateY(-15deg);
+	        transform: translateX(-30px) perspective(600px) rotateY(-15deg);
 }
 .floating-box .logo {
 	position: absolute;
 	top: -30px;
 	width: 60px;
 	z-index: 2;
-	transform: translateZ(100px);
+	-webkit-transform: translateZ(100px);
+	        transform: translateZ(100px);
 	transition: 0.3s;
 }
 .floating-box .logo:hover {
-	-ms-transform: rotate(-0.4turn);
-	    transform: rotate(-0.4turn);
+	-webkit-transform: rotate(-0.4turn);
+	        transform: rotate(-0.4turn);
 }
 .floating-box h1 {
 	font-weight: 700;

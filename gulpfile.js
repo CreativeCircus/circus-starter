@@ -1,7 +1,6 @@
 // all the node modules we need
 const gulp = require('gulp'),
-	watch = require('gulp-watch'),
-	// sass = require('gulp-sass'),
+	sass = require('gulp-sass')(require('sass')),
 	sourcemaps = require('gulp-sourcemaps'),
 	autoprefixer = require('gulp-autoprefixer'),
 	babel = require('gulp-babel'),
@@ -16,9 +15,6 @@ const gulp = require('gulp'),
 	fs = require('fs'),
 	path = require('path'),
 	browserSync = require('browser-sync').create()
-
-// sass.compiler = require('sass');
-const sass = require('gulp-sass')(require('sass'))
 
 const errorHandler = function (err) {
 	notify.onError({
